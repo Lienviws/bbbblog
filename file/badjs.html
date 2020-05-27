@@ -1,0 +1,704 @@
+<!DOCTYPE html><html><head>
+      <title>badjs</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/liyijun/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.5.9/node_modules/@shd101wyy/mume/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E4%BD%A0%E7%9F%A5%E9%81%93%E8%87%AA%E5%B7%B1%E7%9A%84%E4%BB%A3%E7%A0%81%E5%9C%A8%E7%BA%BF%E4%B8%8A%E6%9C%89%E5%A4%9A%E5%B0%91%E9%97%AE%E9%A2%98%E5%90%97">&#x4F60;&#x77E5;&#x9053;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x5728;&#x7EBF;&#x4E0A;&#x6709;&#x591A;&#x5C11;&#x95EE;&#x9898;&#x5417;</h1>
+
+<blockquote>
+<p>badjs&#xFF0C;&#x5373;&#x524D;&#x7AEF;&#x5F02;&#x5E38;&#x7684;&#x4E00;&#x4E2A;&#x6D0B;&#x6C14;&#x7684;&#x7EDF;&#x79F0;&#x3002;&#x6307;&#x4EE3;&#x90A3;&#x4E9B;&#x300C;&#x627E;&#x4E0D;&#x5230;&#x5BF9;&#x8C61;&#x300D;&#x3001;&#x300C;&#x672A;&#x5B9A;&#x4E49;&#x300D;&#x3001;&#x300C;&#x8BED;&#x6CD5;&#x95EE;&#x9898;&#x300D;&#x7B49;&#x5728;&#x524D;&#x7AEF;&#x629B;&#x51FA;&#x6765;&#x7684;&#x5F02;&#x5E38;&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+<h2 class="mume-header" id="%E5%89%8D%E8%A8%80">&#x524D;&#x8A00;</h2>
+
+<p>&#x672C;&#x4EBA;&#x6240;&#x5728;&#x7684;&#x524D;&#x7AEF;&#x4E1A;&#x52A1;&#x957F;&#x671F;&#x53D7;&#x5230;&#x5927;&#x91CF;&#x5F02;&#x5E38;&#x7684;&#x56F0;&#x6270;&#xFF0C;&#x53C8;&#x5E38;&#x5E38;&#x627E;&#x4E0D;&#x5230;&#x539F;&#x56E0;&#x3002;&#x6709;&#x65F6;&#x5F02;&#x5E38;&#x4E00;&#x4E0B;&#x66B4;&#x6DA8;&#xFF0C;&#x53C8;&#x964D;&#x4E86;&#x56DE;&#x53BB;&#xFF0C;&#x5B9A;&#x4F4D;&#x4E0D;&#x5230;&#x95EE;&#x9898;&#xFF0C;&#x6DF1;&#x53D7;&#x5176;&#x6270;&#x3002;&#x7ECF;&#x8FC7;&#x957F;&#x65F6;&#x95F4;&#x7684;&#x6C89;&#x6DC0;&#xFF0C;&#x5206;&#x6790;&#x603B;&#x7ED3;&#x51FA;&#x4E86;&#x4E00;&#x5957;&#x7ED3;&#x8BBA;&#x548C;&#x65B9;&#x6CD5;&#x3002;</p>
+<p>&#x672C;&#x6587;&#x524D;&#x534A;&#x90E8;&#x5206;&#x8BB2;&#x8FF0;&#x4E86;&#x600E;&#x4E48;&#x6536;&#x96C6;&#x548C;&#x5206;&#x6790; badjs &#x4EE5;&#x53CA;&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x505A;&#x8FD9;&#x4EF6;&#x4E8B;&#xFF0C;&#x9002;&#x5408;&#x4E8E;&#x6CA1;&#x6709;&#x7CFB;&#x7EDF;&#x63A5;&#x89E6;&#x8FC7; badjs &#x7684;&#x540C;&#x5B66;&#x4E86;&#x89E3;&#x3002;&#x540E;&#x534A;&#x90E8;&#x5206;&#x5BF9;&#x4E8E;&#x4E00;&#x4E9B;&#x5F02;&#x5E38;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982; Script error &#x505A;&#x4E86;&#x8F83;&#x4E3A;&#x8BE6;&#x7EC6;&#x7684;&#x653B;&#x9632;&#x4ECB;&#x7ECD;&#xFF0C;&#x53E6;&#x5916;&#x4E5F;&#x7B80;&#x5355;&#x7684;&#x4ECB;&#x7ECD;&#x4E86;&#x4E00;&#x4E0B;&#x540E;&#x53F0;&#x7684;&#x74F6;&#x9888;&#x4E4B;&#x5904;&#xFF0C;&#x4F9B;&#x6709;&#x76F8;&#x540C;&#x4F53;&#x4F1A;&#x7684;&#x540C;&#x5B66;&#x53C2;&#x8003;&#x548C;&#x8BA8;&#x8BBA;&#x3002;</p>
+<p>&#x5E0C;&#x671B;&#x5BF9;&#x4E8E;&#x5C4F;&#x5E55;&#x9762;&#x524D;&#x7684;&#x4F60;&#x80FD;&#x6709;&#x6240;&#x542F;&#x53D1;&#x3002;</p>
+<p>ps&#xFF1A;&#x6B64;&#x7CFB;&#x5217;&#x65B9;&#x6CD5;&#x4E0D;&#x9002;&#x7528;&#x4E8E;node.js</p>
+<h2 class="mume-header" id="%E4%BA%AC%E4%B8%9C%E7%A4%BE%E4%BA%A4%E7%94%B5%E5%95%86%E9%83%A8%E7%9A%84-badjs">&#x4EAC;&#x4E1C;&#x793E;&#x4EA4;&#x7535;&#x5546;&#x90E8;&#x7684; badjs</h2>
+
+<p>&#x5148;&#x6765;&#x770B;&#x4E0B;&#x8FD9;&#x5F20;&#x56FE;&#x7247;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gewsv2g4igj30e00army0.jpg" alt="badjs"></p>
+<p>&#x8FD9;&#x662F;&#x6211;&#x6240;&#x8D1F;&#x8D23;&#x7684;&#x4E00;&#x4E2A;&#x7EBF;&#x4E0A;&#x4E1A;&#x52A1;&#x7684; badjs &#x8D70;&#x52BF;&#x3002;&#x4E0D;&#x77E5;&#x9053;&#x4F60;&#x770B;&#x5230;&#x8FD9;&#x6839;&#x523A;&#x662F;&#x4EC0;&#x4E48;&#x611F;&#x89C9;&#xFF0C;&#x53CD;&#x6B63;&#x6211;&#x770B;&#x5230;&#x662F;&#x4F1A;&#x975E;&#x5E38;&#x7D27;&#x5F20;&#xFF0C;&#x4E0D;&#x8BBA;&#x624B;&#x4E0A;&#x6709;&#x4EC0;&#x4E48;&#x4E8B;&#x90FD;&#x5F97;&#x7ACB;&#x9A6C;&#x6251;&#x5411;&#x7535;&#x8111;&#x68C0;&#x67E5;&#x95EE;&#x9898;&#xFF0C;&#x5206;&#x6790;&#x65E5;&#x5FD7;&#xFF0C;&#x8DDF;&#x8001;&#x677F;&#x6C47;&#x62A5;&#x8D77;&#x56E0;...</p>
+<h3 class="mume-header" id="%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E4%BB%AC%E4%BC%9A%E6%9C%89%E8%BF%99%E4%B8%AA">&#x4E3A;&#x4EC0;&#x4E48;&#x6211;&#x4EEC;&#x4F1A;&#x6709;&#x8FD9;&#x4E2A;</h3>
+
+<p>&#x4FD7;&#x8BDD;&#x8BF4;&#xFF0C;&#x6280;&#x672F;&#x670D;&#x52A1;&#x4E8E;&#x4E1A;&#x52A1;&#x3002;&#x6211;&#x4EEC;&#x7684; badjs &#x7CFB;&#x7EDF;&#x8BDE;&#x751F;&#x4E8E;&#x5FC5;&#x7136;&#x3002;</p>
+<p>&#x4EE5;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5546;&#x54C1;&#x8BE6;&#x60C5;&#x4E1A;&#x52A1;&#x4E3A;&#x4F8B;&#x3002;&#x5E73;&#x65E5;&#x7684;&#x6D41;&#x91CF;&#x5CF0;&#x503C;&#x662F;2w/min&#xFF0C;&#x65E5;pv&#x6709;&#x5343;&#x4E07;&#x3002;</p>
+<p>&#x5047;&#x5982;&#x524D;&#x7AEF;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x6709;&#x5565;&#x4E1C;&#x897F;&#x70B9;&#x4E0D;&#x52A8;&#xFF0C;&#x5BFC;&#x81F4;&#x8BBF;&#x95EE;&#x7684;&#x7528;&#x6237;&#x53D8;&#x5C11;&#x4E86;&#x3002;&#x6700;&#x540E;&#x7684;&#x7ED3;&#x679C;&#x662F;&#x5355;&#x91CF;&#x5C11;&#x4E86;&#xFF0C;&#x7528;&#x6237;&#x4E22;&#x4E86;&#xFF0C;&#x8FD8;&#x5F71;&#x54CD;&#x4E86;&#x6574;&#x4E2A;&#x90E8;&#x95E8;&#x540C;&#x5B66;&#x7684;&#x996D;&#x7897;&#x3002;&#x8FD9;&#x4E2A;&#x9505;&#xFF0C;&#x80CC;&#x4E0D;&#x8D77;&#x3002;</p>
+<p>&#x9762;&#x4E34;&#x8FD9;&#x4E9B;&#x95EE;&#x9898;&#xFF0C;&#x8BD5;&#x95EE;&#x4E00;&#x4E0B;&#xFF0C;&#x4F60;&#x8981;&#x4E0A;&#x7EBF;&#x7684;&#x65F6;&#x5019;&#x6015;&#x4E0D;&#x6015;&#xFF1F;</p>
+<p>&#x4E3A;&#x4E86;&#x7A0B;&#x5E8F;&#x5458;&#x7684;&#x5E78;&#x798F;&#x751F;&#x6D3B;&#xFF0C;&#x63D0;&#x524D;&#x53D1;&#x73B0;&#x95EE;&#x9898;&#xFF0C;&#x628A;&#x9ED1;&#x9505;&#x627C;&#x6740;&#x5728;&#x6447;&#x7BEE;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
+<h2 class="mume-header" id="badjs%E5%8E%9F%E7%90%86%E5%92%8C%E6%94%B6%E9%9B%86">badjs&#x539F;&#x7406;&#x548C;&#x6536;&#x96C6;</h2>
+
+<p>&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x9884;&#x6D4B;&#x54EA;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x4F1A;&#x51FA;&#x95EE;&#x9898;&#xFF0C;&#x6210;&#x672C;&#x6700;&#x5C0F;&#x7684;&#x65B9;&#x6848;&#x662F;&#x5728;&#x4E00;&#x4E2A;&#x96C6;&#x4E2D;&#x7684;&#x5730;&#x65B9;&#x7EDF;&#x4E00;&#x5904;&#x7406;&#xFF0C;&#x7136;&#x540E;&#x6536;&#x96C6;&#x8D77;&#x6765;&#x3002;</p>
+<h3 class="mume-header" id="badjs-%E7%9A%84%E7%94%B1%E6%9D%A5">badjs &#x7684;&#x7531;&#x6765;</h3>
+
+<p>badjs &#x5B9E;&#x8D28;&#x662F; js &#x5F15;&#x64CE;&#x6267;&#x884C;&#x4E86;&#x65E0;&#x6CD5;&#x8BC6;&#x522B;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x51FA;&#x73B0;&#x4E86;&#x5F02;&#x5E38;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x5728; undefined &#x4E0A;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;&#x3001;&#x7528;&#x9519;&#x4E86;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x3001;&#x89E3;&#x6790;&#x5F02;&#x5E38;&#x3001;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x7B49;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf60yo87dbj30ib09twev.jpg" alt="&#x82B1;&#x5F0F;&#x9519;&#x8BEF;"></p>
+<h3 class="mume-header" id="badjs%E7%9A%84%E6%94%B6%E9%9B%86">badjs&#x7684;&#x6536;&#x96C6;</h3>
+
+<p>&#x5F53; JavaScript &#x8FD0;&#x884C;&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x65F6;&#xFF0C;&#x5E76;&#x4E14;&#x672A;&#x88AB;&#x6355;&#x83B7;&#xFF0C;<code>window</code> &#x4E0B;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; <code>ErrorEvent</code> &#x63A5;&#x53E3;&#x7684; <code>error</code> &#x4E8B;&#x4EF6;&#xFF0C;&#x5E76;&#x6267;&#x884C; <code>window.onerror()</code></p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x5728;&#x5168;&#x5C40;&#x5904;&#x7406;&#x5F02;&#x5E38;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;error&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">errorEvent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> message<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> lineno<span class="token punctuation">,</span> colno<span class="token punctuation">,</span> error <span class="token punctuation">}</span> <span class="token operator">=</span> errorEvent
+    <span class="token operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><pre data-role="codeBlock" data-info="js" class="language-javascript">window<span class="token punctuation">.</span><span class="token function-variable function">onerror</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">message<span class="token punctuation">,</span> source<span class="token punctuation">,</span> lineno<span class="token punctuation">,</span> colno<span class="token punctuation">,</span> error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+</pre><p>&#x8FD9;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x5728;&#x5199;&#x6CD5;&#x4E0A;&#x524D;&#x8005;&#x66F4;&#x4F18;&#x4E00;&#x70B9;&#xFF0C;&#x56E0;&#x4E3A; <code>error</code> &#x4E8B;&#x4EF6;&#x53EF;&#x4EE5;&#x76D1;&#x542C;&#x591A;&#x4E2A;&#xFF0C;<code>window.onerror</code> &#x53EA;&#x80FD;&#x8BA2;&#x9605;&#x4E00;&#x4E2A;&#x3002;</p>
+<p>&#x53EF;&#x60DC; ie8 &#x4EE5;&#x524D;&#x4E0D;&#x652F;&#x6301; <code>ErrorEvent</code>&#xFF0C;&#x53EA;&#x80FD;&#x4F7F;&#x7528; <code>window.onerror</code>&#x3002; &#x6240;&#x4EE5;&#x770B;&#x4E1A;&#x52A1;&#x9700;&#x8981;&#x5408;&#x7406;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x8FD8;&#x6709; <code>try...catch</code> &#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x6536;&#x96C6;&#x5230;&#x7279;&#x5B9A;&#x573A;&#x666F;&#x4E0B;&#x7684;&#x5168;&#x5C40;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x8FD9;&#x4E2A;&#x65B9;&#x5F0F;&#x6709;&#x5F88;&#x591A;&#x7F3A;&#x9677;&#xFF0C;&#x5173;&#x4E8E;&#x5B83;&#x6211;&#x4EEC;&#x540E;&#x9762;&#x518D;&#x8C08;&#x3002;</p>
+<p>&#x901A;&#x8FC7; window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#xFF0C;&#x6211;&#x4EEC;&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#x80FD;&#x6536;&#x96C6;&#x5230;&#x4E94;&#x7C7B;&#x4FE1;&#x606F;&#xFF0C;&#x5206;&#x522B;&#x662F;&#x300C;<code>message</code>: &#x9519;&#x8BEF;&#x4FE1;&#x606F;&#x300D;&#x3001;&#x300C;<code>filename(source)</code>&#xFF1A;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x7684;&#x811A;&#x672C;URL&#x300D;&#x3001;&#x300C;<code>lineno</code>: &#x9519;&#x8BEF;&#x884C;&#x300D;&#x3001;&#x300C;<code>colno</code>: &#x9519;&#x8BEF;&#x5217;&#x300D;&#x3001;&#x300C;<code>error</code>: Error&#x5BF9;&#x8C61;&#x300D;</p>
+<p>&#x5982;&#x56FE;&#x6240;&#x793A;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexze85jhlj30hp06774b.jpg" alt="error&#x4FE1;&#x606F;"></p>
+<p>&#x6709;&#x4E86;&#x8FD9;&#x4E9B;&#xFF0C;&#x5C31;&#x5DF2;&#x7ECF;&#x7ED9;&#x4E86;&#x6211;&#x4EEC;&#x76F8;&#x5F53;&#x5145;&#x5206;&#x7684;&#x4FE1;&#x606F;&#x6765;&#x5B9A;&#x4F4D;&#x95EE;&#x9898;&#x4E86;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x62A5;&#x9519;&#x7684;&#x4FE1;&#x606F;&#x6709;&#x4E00;&#x70B9;&#x633A;&#x6709;&#x610F;&#x601D;&#x3002;message &#x91CC;&#x4F1A;&#x5E26;&#x4E0A; &apos;Uncaught&apos; &#x8868;&#x793A;&#x672A;&#x6355;&#x83B7;&#x3002;&#x800C; error &#x5185;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x524D;&#x7F00;&#x8BCD;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf70kv267bj309r02mdfo.jpg" alt="Uncaught"></p>
+<p>&#x4EE5;&#x4E0A;&#x8BF4;&#x5230;&#x7684;&#x662F;&#x7406;&#x60F3;&#x573A;&#x666F;&#xFF0C;&#x771F;&#x5B9E;&#x73AF;&#x5883;&#x590D;&#x6742;&#x5F88;&#x591A;&#xFF0C;&#x53EA;&#x80FD;&#x6536;&#x96C6;&#x5230;&#x4E00;&#x4E9B;&#x4E0D;&#x592A;&#x6709;&#x610F;&#x4E49;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexzhsszbxj3042053t8i.jpg" alt="&#x8DE8;&#x57DF;error&#x4FE1;&#x606F;"></p>
+<p>&#x8FD9;&#x79CD;&#x662F;&#x7531;&#x4E8E;&#x811A;&#x672C;&#x8DE8;&#x57DF;&#x7684;&#x95EE;&#x9898;&#x5BFC;&#x81F4;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x6587;&#x7AE0;&#x540E;&#x534A;&#x90E8;&#x5206;&#x4F1A;&#x6DF1;&#x5165;&#x7684;&#x8C08;&#x8C08;&#x3002;</p>
+<p>window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x4E5F;&#x5E76;&#x4E0D;&#x662F;&#x4EC0;&#x4E48;&#x5F02;&#x5E38;&#x90FD;&#x80FD;&#x6355;&#x83B7;&#x7684;&#x3002;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5728; console &#x91CC;&#x6253;&#x5165;&#x7684;&#x9519;&#x8BEF;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x62A5;&#x7684;&#x8DE8;&#x57DF;&#x9519;&#x8BEF;&#x3001;&#x8D44;&#x6E90; 404 &#x7B49;&#x90FD;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x3002;</p>
+<p><strong>&#x5C0F;&#x7A0B;&#x5E8F;badjs</strong></p>
+<p>&#x4E0A;&#x9762;&#x662F;html&#x7CFB;&#x7684;&#x524D;&#x7AEF;&#x9519;&#x8BEF;&#x6536;&#x96C6;&#xFF0C;&#x5C0F;&#x7A0B;&#x5E8F;&#x7684;&#x6709;&#x4E9B;&#x5DEE;&#x5F02;&#x3002;&#x4EE5;&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x4E3A;&#x4F8B;&#xFF0C;</p>
+<p>&#x5C0F;&#x7A0B;&#x5E8F;&#x7684;&#x5168;&#x5C40;&#x5F02;&#x5E38;&#x6355;&#x83B7;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;<code>App</code>&#x6CE8;&#x518C;&#x5C0F;&#x7A0B;&#x5E8F;&#x7684;&#x65B9;&#x6CD5;&#x4E0B;&#x8BA2;&#x9605;&#x3002;<a href="https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onError-String-error">&#x76F8;&#x5173;&#x6587;&#x6863;&#x70B9;&#x8FD9;&#x91CC;</a></p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token function">onLaunch</span> <span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Do something initial when launch.</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token operator">...</span><span class="token punctuation">,</span>
+  <span class="token function">onError</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</pre><p>&#x8FD9;&#x91CC;&#x4E0D;&#x592A;&#x4E00;&#x6837;&#x7684;&#x662F;&#xFF0C;onError&#x8BA2;&#x9605;&#x51FD;&#x6570;&#x91CC;&#x53EA;&#x6709;&#x4E00;&#x4E2A;<code>msg</code>&#x53C2;&#x6570;&#x3002;&#x5185;&#x5BB9;&#x7C7B;&#x4F3C;<code>error.stack</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gez0s3o5usj30ze05ut95.jpg" alt="msg"></p>
+<h3 class="mume-header" id="badjs%E4%B8%8A%E6%8A%A5">badjs&#x4E0A;&#x62A5;</h3>
+
+<p>&#x7531;&#x4E8E;&#x4F9D;&#x9760;&#x4E0A;&#x62A5;&#x7684;&#x4FE1;&#x606F;&#x5B9A;&#x4F4D;&#x95EE;&#x9898;&#xFF0C;&#x9700;&#x8981;&#x786E;&#x5B9A;&#x54EA;&#x4E9B;&#x4FE1;&#x606F;&#x662F;&#x9700;&#x8981;&#x7684;&#x3002;&#x53E6;&#x5916;&#x8003;&#x8651;&#x5230;&#x6570;&#x636E;&#x91CF;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x53EA;&#x4E0A;&#x62A5;&#x4E00;&#x4E9B;&#x5FC5;&#x8981;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p><strong>&#x524D;&#x7AEF;&#x4E0A;&#x62A5;&#x6570;&#x636E;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x522B;</th>
+<th>&#x6765;&#x6E90;</th>
+<th>&#x793A;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stack</td>
+<td>error.stack</td>
+<td>&quot;ReferenceError: test is not defined    at HTMLLIElement.<anonymous> (<a href="https://wq.360buyimg.com/wecteam/badjstest.js:8996:115">https://wq.360buyimg.com/wecteam/badjstest.js:8996:115</a>)    at HTMLUListElement.delegator (<a href="https://wq.360buyimg.com/wecteam/badjstest.js:2894:43">https://wq.360buyimg.com/wecteam/badjstest.js:2894:43</a>)    at HTMLUListElement.handler.proxy (<a href="https://wq.360buyimg.com/wecteam/badjstest.js:2729:31">https://wq.360buyimg.com/wecteam/badjstest.js:2729:31</a>)&quot;;URL:<a href="https://wq.360buyimg.com/wecteam/badjstest.js;Line:8996;Column:115">https://wq.360buyimg.com/wecteam/badjstest.js;Line:8996;Column:115</a></anonymous></td>
+</tr>
+<tr>
+<td>&#x5176;&#x4ED6;&#x5FC5;&#x8981;&#x7684;&#x81EA;&#x5B9A;&#x4E49;&#x6570;&#x636E;</td>
+<td>/</td>
+<td>balabalabala</td>
+</tr>
+</tbody>
+</table>
+<p>&#x53E6;&#x5916;&#x6709;&#x4E9B;&#x6570;&#x636E;&#x662F;&#x5305;&#x542B;&#x5728;&#x62A5;&#x6587;&#x5F53;&#x4E2D;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x670D;&#x52A1;&#x7AEF;&#x4E00;&#x8D77;&#x6536;&#x96C6;&#x548C;&#x5C55;&#x793A;&#xFF0C;&#x524D;&#x7AEF;&#x4E0D;&#x9700;&#x8981;&#x518D;&#x5355;&#x72EC;&#x4E0A;&#x4F20;</p>
+<p><strong>&#x670D;&#x52A1;&#x7AEF;&#x6570;&#x636E;</strong></p>
+<table>
+<thead>
+<tr>
+<th>&#x7C7B;&#x522B;</th>
+<th>&#x6765;&#x6E90;</th>
+<th>&#x793A;&#x4F8B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ip</td>
+<td>/</td>
+<td>58.20.191.9</td>
+</tr>
+<tr>
+<td>time</td>
+<td>/</td>
+<td>May 20th 2020, 14:56:00.062</td>
+</tr>
+<tr>
+<td>referer</td>
+<td>Headers.Referer</td>
+<td><a href="https://wqsou.jd.com/wecTeam?key=%E9%9B%B6%E9%A3%9F&amp;sf=14&amp;as=0&amp;version=V00--">https://wqsou.jd.com/wecTeam?key=&#x96F6;&#x98DF;&amp;sf=14&amp;as=0&amp;version=V00--</a></td>
+</tr>
+<tr>
+<td>UA</td>
+<td>Headers.User-Agent</td>
+<td>Mozilla/5.0 (iPhone; CPU iPhone OS 13_3_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/7.0.12(0x17000c2d) NetType/4G Language/zh_CN</td>
+</tr>
+<tr>
+<td>user(&#x7528;&#x6237;&#x4FE1;&#x606F;)</td>
+<td>Headers.Cookie</td>
+<td>wecTeam</td>
+</tr>
+</tbody>
+</table>
+<p><strong>&#x6570;&#x636E;&#x4E0A;&#x62A5;</strong></p>
+<p>&#x524D;&#x7AEF;&#x628A;&#x5FC5;&#x8981;&#x7684;&#x6570;&#x636E;&#x62FC;&#x63A5;&#x8D77;&#x6765;&#xFF0C;&#x5927;&#x6982;&#x957F;&#x8FD9;&#x4E2A;&#x6837;&#x5B50;</p>
+<p><a href="https://wq.jd.com/wecteam/badjs?stack=%22ReferenceError%3A%20test%20is%20not%20defined%20%20%20%20at%20HTMLLIElement.%3Canonymous%3E%20(https%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3A8996%3A115)%20%20%20%20at%20HTMLUListElement.delegator%20(https%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3A2894%3A43)%20%20%20%20at%20HTMLUListElement.handler.proxy%20(https%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3A2729%3A31)%22%3BURL%3Ahttps%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3BLine%3A8996%3BColumn%3A115&amp;exts=balabalabala">https://wq.jd.com/wecteam/badjs?stack=&quot;ReferenceError%3A test is not defined    at HTMLLIElement.&lt;anonymous&gt; (https%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3A8996%3A115)    at HTMLUListElement.delegator (https%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3A2894%3A43)    at HTMLUListElement.handler.proxy (https%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3A2729%3A31)&quot;%3BURL%3Ahttps%3A%2F%2Fwq.360buyimg.com%2Fwecteam%2Fbadjstest.js%3BLine%3A8996%3BColumn%3A115&amp;exts=balabalabala</a></p>
+<p>&#x6570;&#x636E;&#x4F20;&#x8F93;&#x53EF;&#x4EE5;&#x7528;<code>get</code>&#x65B9;&#x5F0F;&#x5373;&#x53EF;&#x3002;&#x66F4;&#x7B80;&#x5355;&#x4E00;&#x4E9B;&#x7684;&#x7528;<code>img</code>&#x4F20;&#x9012;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">var</span> _img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+_img<span class="token punctuation">.</span>src <span class="token operator">=</span> url<span class="token punctuation">;</span>
+</pre><p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>get</code>&#x65B9;&#x5F0F;&#x56E0;&#x4E3A;&#x62FC;&#x5728;<code>url</code>&#x4E0A;&#xFF0C;&#x6709;&#x6700;&#x5927;&#x957F;&#x5EA6;&#x9650;&#x5236;&#xFF0C;&#x6CE8;&#x610F;&#x88C1;&#x526A;&#x3002;&#x5982;&#x679C;&#x8981;&#x4E0D;&#x9650;&#x957F;&#x5EA6;&#xFF0C;&#x8BF7;&#x7528;<code>post</code>&#x65B9;&#x5F0F;&#x4E0A;&#x62A5;&#x3002;</p>
+<p><strong>&#x6570;&#x636E;&#x6E05;&#x6D17;</strong></p>
+<p>&#x771F;&#x5B9E;&#x7684;&#x73AF;&#x5883;&#x4E0B;&#x4F1A;&#x66F4;&#x590D;&#x6742;&#x4E00;&#x4E9B;&#x3002;&#x56E0;&#x4E3A;&#x4E00;&#x65E6;&#x53D1;&#x751F;<code>badjs</code>&#xFF0C;&#x6570;&#x636E;&#x91CF;&#x53EF;&#x80FD;&#x4F1A;&#x975E;&#x5E38;&#x5927;&#xFF0C;&#x5F62;&#x6210;&#x4E95;&#x55B7;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x62D6;&#x6302;&#x6570;&#x636E;&#x670D;&#x52A1;&#x5668;&#x3002;&#x4F46;&#x662F;&#x4E5F;&#x4E0D;&#x80FD;&#x4E0D;&#x4E0A;&#x62A5;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x5BF9;&#x4E0A;&#x62A5;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x4E00;&#x5C42;&#x9884;&#x5904;&#x7406;&#x3002;</p>
+<p>1.&#x53BB;&#x9664;&#x91CD;&#x590D;&#x9519;&#x8BEF;<br>
+&#x771F;&#x5B9E;&#x573A;&#x666F;&#x4E0B;&#x5927;&#x591A;&#x662F;&#x56E0;&#x4E3A;&#x67D0;&#x4E2A;&#x4E8B;&#x4EF6;&#x91CC;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x51FA;&#x73B0;badjs&#xFF0C;&#x6BD4;&#x5982;&#x70B9;&#x51FB;&#x6309;&#x94AE;&#x3002;&#x5F53;&#x7528;&#x6237;&#x91CD;&#x590D;&#x70B9;&#x51FB;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x91CD;&#x590D;&#x51FA;&#x73B0;badjs&#x3002;&#x8FD9;&#x91CC;&#x53EF;&#x4EE5;&#x63D0;&#x524D;&#x7B5B;&#x6389;&#x91CD;&#x590D;&#x4E0A;&#x62A5;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x53EF;&#x4EE5;&#x8282;&#x7701;&#x5F88;&#x591A;&#x6570;&#x636E;&#x7684;&#x5B58;&#x50A8;&#x91CF;&#x3002;</p>
+<p>2.&#x5408;&#x5E76;&#x6570;&#x636E;(&#x5EF6;&#x8FDF;&#x4E0A;&#x62A5;)<br>
+&#x8FD9;&#x4E00;&#x6B65;&#x76EE;&#x7684;&#x4E5F;&#x662F;&#x4E3A;&#x4E86;&#x51CF;&#x5C11;&#x4E0A;&#x62A5;&#x91CF;&#x548C;&#x8282;&#x7701;&#x5B58;&#x50A8;&#x6570;&#x636E;&#x3002;&#x53E6;&#x5916;&#x5982;&#x679C;&#x5728;&#x540C;&#x4E00;&#x4E2A;user view&#x4E0B;&#x51FA;&#x73B0;&#x591A;&#x4E2A;&#x9519;&#x8BEF;&#xFF0C;&#x4E5F;&#x65B9;&#x4FBF;&#x5206;&#x6790;&#x95EE;&#x9898;&#x76F8;&#x4E92;&#x7684;&#x5173;&#x8054;&#x3002;</p>
+<h3 class="mume-header" id="%E5%AE%9E%E4%BE%8Bbj-reportjs">&#x5B9E;&#x4F8B;&#xFF1A;bj-report.js</h3>
+
+<p>&#x53EF;&#x80FD;&#x4F60;&#x4F1A;&#x95EE;&#xFF1A;&#x9053;&#x7406;&#x6211;&#x90FD;&#x61C2;&#xFF0C;&#x4F46;&#x6211;&#x4E0D;&#x60F3;&#x52AA;&#x529B;&#x4E86;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x73B0;&#x6210;&#x7684;&#x5DE5;&#x5177;&#xFF1F;</p>
+<p>&#x6709;&#x3002;</p>
+<p>&#x63A8;&#x8350;&#x8FD9;&#x5757;&#x9E45;&#x5382;&#x51FA;&#x54C1;&#xFF1A;bj-report.js <a href="https://github.com/BetterJS/badjs-report.git">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#x8FDB;&#x5165;git&#x4E3B;&#x9875;</a></p>
+<h2 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">&#x6570;&#x636E;&#x5206;&#x6790;</h2>
+
+<p>&#x8BF4;&#x5B8C;&#x4E86;&#x6570;&#x636E;&#x4E0A;&#x62A5;&#xFF0C;&#x518D;&#x8BF4;&#x4E00;&#x4E0B;&#x6570;&#x636E;&#x53EF;&#x89C6;&#x5316;&#x7CFB;&#x7EDF;&#xFF0C;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x7684;&#x5206;&#x6790;&#x3002;&#x4ECE;&#x6570;&#x636E;&#x4E2D;&#x6316;&#x6398;&#x51FA;&#x6765;&#x6709;&#x7528;&#x7684;&#x4FE1;&#x606F;&#x4E5F;&#x662F;&#x4E00;&#x95E8;&#x5B66;&#x95EE;&#x3002;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x9700;&#x8981;&#x7ECF;&#x9A8C;&#xFF0C;&#x6709;&#x65F6;&#x5019;&#x8FD8;&#x9700;&#x8981;&#x4E00;&#x4E9B;&#x76F4;&#x89C9;&#x3002;</p>
+<h3 class="mume-header" id="%E5%8F%AF%E8%A7%86%E5%8C%96%E7%B3%BB%E7%BB%9F">&#x53EF;&#x89C6;&#x5316;&#x7CFB;&#x7EDF;</h3>
+
+<p>&#x5148;&#x770B;&#x4E0B;&#x4EAC;&#x4E1C;&#x793E;&#x4EA4;&#x7535;&#x5546;&#x90E8;&#x5E73;&#x65F6;&#x4F7F;&#x7528;&#x7684;&#x76D1;&#x63A7;&#x7CFB;&#x7EDF;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1geyztuwuiij31fz0u0wna.jpg" alt="kibana&#x7CFB;&#x7EDF;"></p>
+<p>&#x6211;&#x4EEC;&#x672C;&#x8EAB;&#x6709;badjs&#x7684;&#x6570;&#x636E;&#x5757;&#xFF0C;&#x7136;&#x540E;&#x5927;&#x6570;&#x636E;&#x540C;&#x5B66;&#x57FA;&#x4E8E; ElasticSearch&#xFF0C; &#x7528; kibana &#x642D;&#x5EFA;&#x4E86;&#x8FD9;&#x4E2A;&#x65E5;&#x5FD7;&#x53EF;&#x89C6;&#x5316;&#x5206;&#x6790;&#x7CFB;&#x7EDF;&#x3002;</p>
+<p>kibana &#x662F;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x4E13;&#x4E1A;&#x7684;&#x65E5;&#x5FD7;&#x5206;&#x6790;&#x7CFB;&#x7EDF;&#xFF0C;&#x4F7F;&#x7528;&#x8D77;&#x6765;&#x6839;&#x636E;&#x591A;&#x7EF4;&#x5EA6;&#x6765;&#x67E5;&#x8BE2;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x7701;&#x4E8B;&#x4E00;&#x4E9B;&#x7684;&#x8BDD;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x642D;&#x5EFA;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x62A5;&#x8868;&#x7CFB;&#x7EDF;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gez1jthn4tj32940qi75u.jpg" alt="&#x7B80;&#x5355;&#x7684;&#x62A5;&#x8868;&#x7CFB;&#x7EDF;"></p>
+<p>&#x642D;&#x5EFA;&#x7684;&#x8FC7;&#x7A0B;&#x4E0D;&#x5C5E;&#x4E8E;&#x672C;&#x7BC7;&#x4E3B;&#x9898;&#xFF0C;&#x8FD9;&#x91CC;&#x5C31;&#x4E0D;&#x4ECB;&#x7ECD;&#x4E86;&#x3002;&#x5173;&#x4E8E;&#x6570;&#x636E;&#x65B9;&#x9762;&#xFF0C;&#x5927;&#x5BB6;&#x53EF;&#x80FD;&#x4F1A;&#x5173;&#x6CE8;&#x4E00;&#x4E9B;&#x70B9;&#xFF0C;&#x5728;&#x540E;&#x9762;&#x4F1A;&#x4E13;&#x95E8;&#x6765;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x3002;</p>
+<h3 class="mume-header" id="%E9%94%99%E8%AF%AF%E5%88%86%E6%9E%90">&#x9519;&#x8BEF;&#x5206;&#x6790;</h3>
+
+<p>&#x600E;&#x4E48;&#x7528;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x53BB;&#x5BFB;&#x627E;&#x9519;&#x8BEF;&#x7684;&#x539F;&#x56E0;&#x3002;&#x8FD9;&#x91CC;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x7279;&#x522B;&#x8BF4;&#x660E;&#x7684;&#x662F;&#x3002;badjs&#x5206;&#x4E24;&#x79CD;&#xFF0C;&#x4E00;&#x79CD;&#x662F;&#x56E0;&#x4E3A;&#x4EE3;&#x7801;&#x7F3A;&#x9677;&#x800C;&#x5BFC;&#x81F4;&#x7684;&#xFF0C;&#x4FD7;&#x79F0;bug&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x662F;&#x4EBA;&#x4E3A;&#x6545;&#x610F;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x5237;&#x5B50;&#x3001;&#x722C;&#x866B;&#x3001;&#x6D4F;&#x89C8;&#x5668;&#x63D2;&#x4EF6;&#x7B49;&#x5D4C;&#x5165;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x811A;&#x672C;&#xFF0C;&#x89E6;&#x53D1;&#x4E86;&#x672C;&#x4E0D;&#x5B58;&#x5728;&#x7684;&#x5F02;&#x5E38;&#x3002;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7279;&#x522B;&#x5173;&#x6CE8;&#x524D;&#x8005;&#xFF0C;&#x5E76;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x628A;&#x5B83;&#x548C;&#x540E;&#x8005;&#x533A;&#x5206;&#x5F00;&#x6765;&#x3002;</p>
+<p><strong>content&#x4FE1;&#x606F;</strong></p>
+<p>content&#x4FE1;&#x606F;&#x5373;<code>Error.stack</code>&#xFF0C;&#x91CC;&#x9762;&#x662F;&#x9519;&#x8BEF;&#x7684;&#x5806;&#x6808;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4E00;&#x6BB5;&#x5B8C;&#x6574;&#x7684;stack&#x4FE1;&#x606F;&#xFF0C;&#x5305;&#x542B;&#x4E86;&#x9519;&#x8BEF;&#x4EE3;&#x7801;&#x5806;&#x6808;&#xFF0C;&#x6587;&#x4EF6;&#x548C;&#x884C;&#x5217;&#x53F7;&#x3002;&#x901A;&#x8FC7;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x6211;&#x4EEC;&#x57FA;&#x672C;&#x53EF;&#x4EE5;&#x65AD;&#x5B9A;&#x9519;&#x8BEF;&#x7684;&#x4F4D;&#x7F6E;&#x548C;&#x89E6;&#x53D1;&#x539F;&#x56E0;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8FD9;&#x4E00;&#x6BB5; stack &#x4FE1;&#x606F;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf714ewntvj30ca01mglg.jpg" alt="badjs"></p>
+<p>&#x6211;&#x4EEC;&#x4E00;&#x884C;&#x884C;&#x6765;&#x770B;&#xFF1A;</p>
+<p><code>Uncaught TypeError: Cannot read property &apos;style&apos; of undefined</code></p>
+<p>&#x65E0;&#x6CD5;&#x5728; <code>undefined</code> &#x4E0B;&#x8BBF;&#x95EE; <code>style</code> &#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x3002;&#x5927;&#x6982;&#x573A;&#x666F;&#x5C31;&#x662F;&#x8BF4;&#x5728;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0B;&#xFF0C;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;&#x7A7A;&#x4E86;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x57FA;&#x7840;&#x4E0A;&#x53C8;&#x8BBF;&#x95EE; <code>style</code> &#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x56E0;&#x6B64;&#x62A5;&#x9519;&#x4E86;&#x3002;</p>
+<p><code>at removeAD (badjs.js:4)</code></p>
+<p>&#x8BE5;&#x5F02;&#x5E38;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E;<code>badjs.js</code> &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x91CC;&#x7684;&#x7B2C; 4 &#x884C;&#xFF0C;&#x6240;&#x5C5E;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x53EB;&#x505A; <code>removeAD</code>&#x3002;</p>
+<p><code>at window.fireBadjs (badjs.js:8)</code></p>
+<p>&#x8C03;&#x7528; <code>removeAD</code> &#x7684;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E; <code>badjs.js</code> &#x7B2C; 8 &#x884C;&#xFF0C;&#x6240;&#x5C5E;&#x7684;&#x65B9;&#x6CD5;&#x540D;&#x53EB;&#x505A; <code>window.fireBadjs</code>&#x3002;</p>
+<p><code>at badjs.html:16</code></p>
+<p>&#x8C03;&#x7528; <code>window.fireBadjs</code> &#x7684;&#x4EE3;&#x7801;&#x4F4D;&#x4E8E; <code>badjs.html</code> &#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x7684;&#x7B2C; 16 &#x884C;&#x3002;</p>
+<p>&#x6709;&#x8FD9;&#x4E48;&#x8BE6;&#x7EC6;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5BF9;&#x7167;&#x6E90;&#x7801;&#x67E5;&#x4E00;&#x4E0B;&#xFF0C;&#x5BF9;&#x4E8E; badjs &#x7684;&#x539F;&#x56E0;&#x57FA;&#x672C;&#x5C31;&#x5FC3;&#x77E5;&#x809A;&#x660E;&#x4E86;&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x6BD4;&#x8F83;&#x7279;&#x522B;&#x7684;content&#x4FE1;&#x606F;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf71dw840cj30bx00y3yb.jpg" alt="anonymous"></p>
+<p>&#x53D1;&#x751F;&#x5F02;&#x5E38;&#x7684;&#x4F4D;&#x7F6E;&#x5F88;&#x5947;&#x602A;&#xFF0C;&#x7B2C;&#x4E00;&#x884C;&#x7B2C;&#x4E00;&#x5217;&#x3002;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x4EE3;&#x7801;&#x662F;&#x5199;&#x5728;&#x7B2C;&#x4E00;&#x884C;&#x7B2C;&#x4E00;&#x5217;&#x5C31;&#x6709;&#x95EE;&#x9898;&#x7684;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x5176;&#x5B9E;&#x662F;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x533F;&#x540D;&#x51FD;&#x6570;&#x7A7A;&#x95F4;&#x4E2D;&#x6267;&#x884C;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x7C7B;&#x4F3C;&#x76F4;&#x63A5;&#x6253;&#x5728; console &#x4E2D;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x6216;&#x8005;&#x901A;&#x8FC7; <code>eval</code> &#x51FD;&#x6570;&#x8FD0;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x4E0A;&#x9762;&#x56FE;&#x7247;&#x91CC;&#x7684;&#x8FD9;&#x4E2A; badjs &#x51FA;&#x73B0;&#x7684;&#x80CC;&#x666F;&#xFF0C;&#x662F; App &#x7684; native &#x7528; js &#x4EE3;&#x7801;&#x5728; webview &#x91CC;&#x76F4;&#x63A5;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x4E2A; window &#x4F5C;&#x7528;&#x57DF;&#x4E0B;&#x7684; <code>callback</code>&#x3002;&#x4F46;&#x662F;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x6240;&#x4EE5;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x6709;&#x4E86;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x57FA;&#x7840;&#xFF0C;&#x518D;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x4E2A;&#x9519;&#x8BEF;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3mzjgiusj31z40kqq84.jpg" alt></p>
+<p>&#x5148;&#x770B;&#x9519;&#x8BEF;&#x5185;&#x5BB9;&#xFF0C;&#x5927;&#x6982;&#x77E5;&#x9053;&#x662F;&#x5728;&#x533F;&#x540D;&#x7A7A;&#x95F4;&#x4E0B;&#x8BBF;&#x95EE;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; SOHUZ &#x7684;&#x5C5E;&#x6027;&#xFF0C;&#x4F46;&#x662F;&#x56E0;&#x4E3A;&#x4F5C;&#x7528;&#x57DF;&#x94FE;&#x4E0A;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x6240;&#x4EE5;&#x62A5;&#x9519;&#x4E86;&#x3002;&#x53C8;&#x56E0;&#x4E3A;&#x662F;&#x5728;&#x7B2C;&#x4E00;&#x884C;&#x7B2C;&#x4E00;&#x5217;&#xFF0C;&#x6211;&#x4EEC;&#x4EE3;&#x7801;&#x91CC;&#x9762;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#xFF0C;&#x56E0;&#x6B64;&#x63A8;&#x65AD;&#x591A;&#x534A;&#x662F;&#x67D0;&#x4E2A; App &#x4E3B;&#x52A8;&#x6267;&#x884C;&#x7684; js &#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x5206;&#x6790;&#x9700;&#x8981;&#x7ED3;&#x5408; ua &#x7684;&#x4FE1;&#x606F;&#x3002;ua &#x91CC;&#x6709; <code>kuaizhanAndroidWrapper</code> &#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#xFF0C;&#x901A;&#x8FC7;&#x4E07;&#x80FD;&#x7684;&#x4E92;&#x8054;&#x7F51;&#xFF0C;&#x53D1;&#x73B0;&quot;&#x5FEB;&#x7AD9;&quot; app &#x7684;&#x8EAB;&#x4EFD;&#x4FE1;&#x606F;&#x91CC;&#x5305;&#x542B;&#x8FD9;&#x4E2A;&#x5B57;&#x6BB5;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x7ED3;&#x8BBA;&#x51FA;&#x6765;&#x4E86;&#xFF1A;&quot;&#x5FEB;&#x7AD9;&quot; app &#x91CC;&#x8BBF;&#x95EE;&#x4E86;&#x8FD9;&#x4E2A;&#x9875;&#x9762;&#xFF0C;&#x5B83;&#x53EF;&#x80FD;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x8FDB;&#x884C;&#x975E;&#x7A7A;&#x68C0;&#x67E5;&#xFF0C;&#x76F4;&#x63A5;&#x8BBF;&#x95EE;&#x4E86; <code>SOHUZ</code>&#xFF0C;&#x5BFC;&#x81F4; badjs&#x3002;&#x5BF9;&#x6211;&#x4EEC;&#x800C;&#x8A00;&#xFF0C;&#x662F;&#x975E;&#x9519;&#x8BEF;&#x3002;</p>
+<p><strong>ua</strong></p>
+<p>&#x5728;&#x4E0A;&#x9762;&#x4E00;&#x6BB5;&#x7684;&#x7ED3;&#x5C3E;&#x63D0;&#x524D;&#x4ECB;&#x7ECD;&#x4E86;&#x4E0B; ua &#x4FE1;&#x606F;&#x7684;&#x4F5C;&#x7528;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x80FD;&#x901A;&#x8FC7; ua&#xFF0C;&#x5F97;&#x77E5;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF1A;&#x6BD4;&#x5982;&#x5FAE;&#x4FE1;&#x91CC;&#x3001;&#x67D0;app&#xFF0C;QQ&#x6D4F;&#x89C8;&#x5668;&#x7B49;&#xFF0C;&#x8FD8;&#x6709;&#x7528;&#x6237;&#x6807;&#x8BC6;&#xFF1A;&#x6BD4;&#x5982;&#x767E;&#x5EA6;&#x722C;&#x866B;&#x3001;&#x963F;&#x91CC;&#x767E;&#x5DDD;&#x3001;&#x6076;&#x610F;&#x722C;&#x866B;&#x7B49;&#x3002;</p>
+<p>ua&#x8FD8;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x7B80;&#x5355;&#x7684;&#x7528;&#x6237;&#x6307;&#x7EB9;&#x3002;&#x7B14;&#x8005;&#x6240;&#x8D1F;&#x8D23;&#x7684;&#x9875;&#x9762;&#x4F1A;&#x7ECF;&#x5E38;&#x88AB;&#x4E0D;&#x77E5;&#x540D;&#x7684;&#x7F51;&#x53CB;&#x5237;&#xFF0C;&#x5728;&#x5185;&#x90E8;&#x6211;&#x4EEC;&#x7EDF;&#x4E00;&#x79F0;&#x4E4B;&#x4E3A;&#xFF1A;&#x5237;&#x5B50;&#x3002;&#x6709;&#x65F6;&#x6211;&#x4EEC;&#x4F1A;&#x9047;&#x5230;&#x5927;&#x91CF;&#x5947;&#x602A;&#x7684;&#x62A5;&#x9519;&#xFF0C;&#x4F46;&#x662F;&#x80CC;&#x540E;&#x7684; ua &#x90FD;&#x662F;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x57FA;&#x672C;&#x53EF;&#x4EE5;&#x8BA4;&#x5B9A;&#x662F;&#x6709;&#x7F51;&#x53CB;&#x5728;&#x5237;&#x6211;&#x4EEC;&#x7684;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<p>&#x9700;&#x8981;&#x5F3A;&#x8C03;&#x7684;&#x4E00;&#x70B9;&#x662F;&#xFF0C;ua&#x53EF;&#x4EE5;&#x4F2A;&#x9020;&#x3002;&#x5F88;&#x591A;&#x6709;&#x7ECF;&#x9A8C;&#x7684;&#x5237;&#x5B50;&#xFF0C;&#x6BCF;&#x6B21;&#x7684; ua &#x662F;&#x901A;&#x8FC7;&#x751F;&#x6210;&#x5668;&#x521B;&#x9020;&#x7684;&#xFF0C;&#x65E0;&#x6CD5;&#x5224;&#x65AD;&#x3002;&#x56E0;&#x6B64; ua &#x4FE1;&#x606F;&#x662F;&#x5426;&#x771F;&#x5B9E;&#xFF0C;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x5177;&#x4F53;&#x5206;&#x6790;&#x3002;</p>
+<p><strong>script error</strong></p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x66F4;&#x771F;&#x5B9E;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x662F;&#x6709;&#x5927;&#x91CF;&#x7684; script error &#x4FE1;&#x606F;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf72ozscp6j31ao0git9x.jpg" alt="script error"></p>
+<p>&#x51FA;&#x73B0; script error&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#x5F15;&#x5165;&#x4E86;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x3002;&#x6BD4;&#x5982;&#x901A;&#x8FC7; script &#x6807;&#x7B7E;&#x5F15;&#x5165;&#x7684;&#x5176;&#x4ED6;&#x975E;&#x540C;&#x57DF; js &#x6587;&#x4EF6;&#xFF0C;&#x91CC;&#x9762;&#x53D1;&#x751F;&#x4E86; badjs&#xFF0C;&#x8FD9;&#x65F6;&#x5728; onerror &#x4E8B;&#x4EF6;&#x91CC;&#x7684; message &#x4FE1;&#x606F;&#x5C31;&#x53EA;&#x6709;&#x4E00;&#x53E5; <code>script error</code>&#xFF0C;error &#x4FE1;&#x606F;&#x4E3A; <code>null</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gexzhsszbxj3042053t8i.jpg" alt="&#x8DE8;&#x57DF;error&#x4FE1;&#x606F;"></p>
+<p>&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x5DF2;&#x7ECF;&#x4E0A;&#x62A5;&#x4E86;&#x7684; script error &#x6570;&#x636E;&#xFF0C;&#x80FD;&#x5F97;&#x5230;&#x7684;&#x6570;&#x636E;&#x975E;&#x5E38;&#x6709;&#x9650;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x53EA;&#x80FD;&#x653E;&#x5F03;&#x5206;&#x6790;&#x3002;&#x80FD;&#x505A;&#x7684;&#x53EA;&#x6709;&#x5C3D;&#x91CF;&#x5728;&#x4E0A;&#x62A5;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x6253;&#x5F00; script error &#x91CC;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x518D;&#x4E0A;&#x62A5;&#x5B83;&#x3002;&#x6BD4;&#x5982;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x8BBE;&#x7F6E;&#x4FE1;&#x4EFB;&#x7B56;&#x7565;&#x3002;</p>
+<p>&#x5173;&#x4E8E; script error &#x8BE6;&#x7EC6;&#x7684;&#x5E94;&#x5BF9;&#x7B56;&#x7565;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x4E0B;&#x9762;&#x7684;&quot;&#x8FDB;&#x9636;&quot;&#x7AE0;&#x8282;&#x91CC;&#x8FDB;&#x4E00;&#x6B65;&#x7684;&#x8BA8;&#x8BBA;&#x5B83;&#x3002;</p>
+<h2 class="mume-header" id="%E8%BF%9B%E9%98%B6">&#x8FDB;&#x9636;</h2>
+
+<p>&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x5F80;&#x5F80;&#x5728;&#x81EA;&#x5DF1;&#x7684;&#x8C61;&#x7259;&#x5854;&#x5185;&#x8FDB;&#x884C;&#x6539;&#x9020;&#x548C;&#x5347;&#x7EA7;&#xFF0C;&#x4F46;&#x662F;&#x771F;&#x5B9E;&#x7684;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x5F80;&#x5F80;&#x6BD4;&#x9884;&#x60F3;&#x7684;&#x66F4;&#x590D;&#x6742;&#x3002;&#x5404;&#x79CD;&#x5404;&#x6837;&#x80CC;&#x666F;&#x7684;&#x6D4F;&#x89C8;&#x5668;&#x3001; webview&#xFF0C;&#x8FD8;&#x6709;&#x975E;&#x6B63;&#x5E38;&#x9014;&#x5F84;&#x8BBF;&#x95EE;&#x7684;&#x6D41;&#x91CF;&#x3001;&#x9632;&#x4E0D;&#x80DC;&#x9632;&#x7684;script error&#x4EE5;&#x53CA;&#x8BA9;&#x4EBA;&#x5934;&#x75BC;&#x7684;&#x7F51;&#x7EDC;&#x73AF;&#x5883;&#x3002;</p>
+<p>window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x94F6;&#x5F39;&#x3002;&#x6709;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x573A;&#x666F;&#x7684;&#x9519;&#x8BEF;&#x5B83;&#x5E76;&#x4E0D;&#x80FD;&#x6293;&#x5230;&#xFF0C;&#x4F46;&#x4E0D;&#x4EE3;&#x8868;&#x8FD9;&#x4E9B;&#x6293;&#x4E0D;&#x5230;&#x7684; badjs &#x4E0D;&#x91CD;&#x8981;&#x3002;&#x53EF;&#x80FD;&#x5728;&#x672A;&#x6765;&#x7684;&#x67D0;&#x4E00;&#x5929;&#xFF0C;&#x8FD0;&#x8425;&#x540C;&#x5B66;&#x627E;&#x4E0A;&#x6765;&#x95EE;&#x4F60;&#x4E3A;&#x4EC0;&#x4E48;&#x6570;&#x636E;&#x4E0D;&#x5BF9;&#x3001;&#x8868;&#x73B0;&#x5947;&#x602A;&#xFF0C;&#x4F60;&#x6293;&#x8033;&#x6320;&#x816E;&#x67E5;&#x4E86;&#x4E00;&#x6574;&#x5929;&#x95EE;&#x9898;&#x6240;&#x5728;&#xFF0C;&#x6700;&#x540E;&#x624D;&#x53D1;&#x73B0;&#x6765;&#x6E90;&#x662F;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x6355;&#x83B7;&#x5230;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p>&#x8FD9;&#x4E00;&#x8282;&#x6211;&#x4EEC;&#x5148;&#x8BA8;&#x8BBA;&#x4E00;&#x4E0B;&#xFF0C;&#x600E;&#x4E48;&#x53BB;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x8986;&#x76D6;&#x90A3;&#x4E9B;&#x6F5C;&#x5728;&#x7684;&#x95EE;&#x9898;&#x3002;&#x6700;&#x540E;&#x518D;&#x8C08;&#x8C08;&#x8DDF;&#x540E;&#x53F0;&#x76F8;&#x5173;&#x7684;&#x4E00;&#x4E9B;&#x5C0F;&#x4E8B;&#x3002;</p>
+<h3 class="mume-header" id="script-error">script error</h3>
+
+<p>&#x6587;&#x7AE0;&#x4E4B;&#x524D;&#x7684;&#x5185;&#x5BB9;&#x5356;&#x4E86;&#x4E0D;&#x5C11;&#x5173;&#x5B50;&#xFF0C;&#x8FD9;&#x4E00;&#x6BB5;&#x6DF1;&#x5165;&#x4E00;&#x4E0B;&#xFF0C;&#x8BA8;&#x8BBA;&#x600E;&#x4E48;&#x80FD;&#x6316;&#x51FA;&#x66F4;&#x591A;&#x6709;&#x6548;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p><strong>&#x6765;&#x6E90;</strong></p>
+<p>script error &#x672C;&#x8D28;&#x662F;&#x56E0;&#x4E3A;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x8DE8;&#x57DF;&#x5B89;&#x5168;&#x7B56;&#x7565;&#x884C;&#x4E3A;&#xFF0C;&#x4FDD;&#x62A4;&#x975E;&#x540C;&#x57DF;&#x4EE3;&#x7801;&#x5185;&#x5BB9;&#x7684;&#x5B89;&#x5168;&#x3002;</p>
+<p>&#x6240;&#x6709;&#x901A;&#x8FC7; script &#x6807;&#x7B7E;&#x5F15;&#x5165;&#x7684;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#xFF0C;&#x5982;&#x679C;&#x51FA;&#x73B0;&#x5F02;&#x5E38;&#xFF0C;window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x90FD;&#x53EA;&#x80FD;&#x5F97;&#x5230; &apos;script error&apos;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf3jw5io8cj30zk0b60t1.jpg" alt="script error"></p>
+<p><strong>&#x5E38;&#x89C4;&#x89E3;&#x51B3;&#x65B9;&#x6848;</strong></p>
+<p>&#x5BF9;&#x4E8E; script &#x6807;&#x7B7E;&#x5F15;&#x5165;&#x7684;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x4EA7;&#x751F; &apos;script error&apos; &#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4E1A;&#x5185;&#x6709;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<p>&#x5927;&#x6982;&#x601D;&#x8DEF;&#x5C31;&#x662F;&#xFF1A;&#x4E0D;&#x5C31;&#x662F;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x561B;&#xFF0C;&#x53EA;&#x8981;&#x53CC;&#x65B9;&#x90FD;&#x89C9;&#x5F97;&#x53EF;&#x4FE1;&#xFF0C;&#x90A3;&#x6211;&#x6D4F;&#x89C8;&#x5668;&#x5C31;&#x7ED9;&#x4F60;&#x653E;&#x5F00;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#x3002;</p>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p>1.response &#x5934;&#x589E;&#x52A0; Access-Control-Allow-Origin&#xFF0C;&#x8868;&#x660E;&#x53D7;&#x4FE1;&#x4EFB;&#x7684;&#x57DF;&#x540D;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf7ax5bmndj30a306ajre.jpg" alt="Access-Control-Allow-Origin"></p>
+<p>2.&#x8BF7;&#x6C42;&#x7684; script &#x6807;&#x7B7E;&#x589E;&#x52A0; crossorigin &#x5C5E;&#x6027;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf5xxx4bhaj30qb00lwec.jpg" alt="crossorigin"></p>
+<p>crossorigin &#x6709;&#x4E24;&#x4E2A;&#x503C;&#xFF0C;&#x5206;&#x522B;&#x662F;</p>
+<ul>
+<li>anonymous</li>
+<li>use-credentials</li>
+</ul>
+<p>&#x5F53; <code>crossorigin=&apos;&apos;</code> &#xFF0C;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5B57;&#x7B26;&#xFF0C;&#x548C;&#x8BBE;&#x7F6E; anonymous &#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;anonymous &#x4F9D;&#x8D56; response &#x5934;&#x7684; Access-Control-Allow-Origin&#x3002;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;&#x4F7F;&#x7528; anonymous &#x65F6;&#xFF0C;request &#x5934;&#x4E0D;&#x4F1A;&#x5E26;&#x4E0A;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x6BD4;&#x5982; cookie&#x3002;&#x76F8;&#x5BF9;&#x7684;&#xFF0C;&#x4F7F;&#x7528; use-credentials &#x53EF;&#x4EE5;&#x5E26;&#x4E0A;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x3002;</p>
+<p>use-credentials &#x9700;&#x8981;&#x548C; response &#x5934;&#x7684; Access-Control-Allow-Credentials &#x914D;&#x5408;&#x4F7F;&#x7528;&#xFF0C;&#x5F53; Access-Control-Allow-Credentials &#x8FD4;&#x56DE; true &#x7684;&#x65F6;&#x5019;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x624D;&#x4F1A;&#x5141;&#x8BB8;&#x8FD0;&#x884C;&#x811A;&#x672C;&#x548C;&#x4FE1;&#x4EFB;&#x6765;&#x6E90;&#x3002;&#x53E6;&#x5916;&#x5728;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C; Access-Control-Allow-Origin &#x4E0D;&#x80FD;&#x8BBE;&#x7F6E;&#x4E3A; <code>*</code>&#xFF0C;&#x5FC5;&#x987B;&#x662F;&#x5177;&#x4F53;&#x7684;&#x57DF;&#x540D;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf7atqgwqkj30am05m0sq.jpg" alt="Access-Control-Allow-Credentials"></p>
+<p>&#x901A;&#x8FC7;&#x4EE5;&#x4E0A;&#x7684;&#x4E24;&#x6B65;&#xFF0C;web &#x6D4F;&#x89C8;&#x5668;&#x4E0B;&#x7684; window error &#x4E8B;&#x4EF6;&#x91CC;&#x7684; error &#x4FE1;&#x606F;&#x5C31;&#x4E0D;&#x4F1A;&#x88AB;&#x6D4F;&#x89C8;&#x5668;&#x62E6;&#x622A;&#x6210; &apos;script error&apos; &#x4E86;&#x3002;</p>
+<p><strong>&#x4E00;&#x4E2A;&#x53D8;&#x79CD;&#x573A;&#x666F;: jsonp</strong></p>
+<p>&#x8FD9;&#x91CC;&#x63D0;&#x4E00;&#x4E2A; script &#x6807;&#x7B7E;&#x7684;&#x53D8;&#x79CD;&#x573A;&#x666F;&#xFF1A;jsonp</p>
+<p>jsonp&#x672C;&#x8EAB;&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#x5C31;&#x662F;&#x8DE8;&#x57DF;&#x63A5;&#x53E3;&#x8BF7;&#x6C42;&#xFF0C;&#x56E0;&#x6B64;&#x5927;&#x90E8;&#x5206;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x81EA;&#x5E26;&#x8DE8;&#x57DF;&#x5149;&#x73AF;&#x3002;&#x53E6;&#x5916;&#x5B83;&#x901A;&#x8FC7; script &#x6807;&#x7B7E;&#x8FD0;&#x884C;&#xFF0C;&#x548C; js &#x811A;&#x672C;&#x7684;&#x6027;&#x8D28;&#x4E00;&#x6837;&#x3002;</p>
+<p>&#x56E0;&#x6B64;&#x5F53;&#x5B83;&#x51FA;&#x73B0;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;&#x4E5F;&#x4F1A;&#x5B58;&#x5728; script error &#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<p>jsonp &#x51FA;&#x73B0;&#x5F02;&#x5E38;&#x7684;&#x5E38;&#x89C1;&#x7684;&#x573A;&#x666F;&#x5C31;&#x662F;&#xFF1A;callback &#x672A;&#x5B9A;&#x4E49;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf7b4srscdj30cf00x3yc.jpg" alt="callback &#x672A;&#x5B9A;&#x4E49;"></p>
+<p>&#x867D;&#x7136;&#x53EF;&#x4EE5;&#x5728; console &#x770B;&#x5230;&#x5177;&#x4F53;&#x9519;&#x8BEF;&#x4FE1;&#x606F;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x88AB;&#x6355;&#x83B7;&#x7684; error &#x4E2D;&#xFF0C;&#x56E0;&#x4E3A; url &#x8DE8;&#x57DF;&#xFF0C;&#x6CA1;&#x989D;&#x5916;&#x8BBE;&#x7F6E;&#x4FE1;&#x4EFB;&#xFF0C;&#x53EA;&#x80FD;&#x6293;&#x5230; Script error&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x6309;&#x7167;&#x300C;&#x5E38;&#x89C4;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x300D;&#x91CC;&#x5217;&#x4E3E;&#x7684;&#x4E24;&#x4E2A;&#x6B65;&#x9AA4;&#x53BB;&quot;&#x89E3;&#x6784;&quot; Script error&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x6709;&#x4E2A;&#x95EE;&#x9898;&#x5728;&#x4E8E;&#x5927;&#x90E8;&#x5206;&#x63A5;&#x53E3;&#x4F9D;&#x8D56;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x524D;&#x7AEF;&#x9700;&#x8981;&#x4F7F;&#x7528; <code>crossorigin=&apos;use-credentials&apos;</code> &#x65B9;&#x5F0F;&#x5C06;&#x8BF7;&#x6C42;&#x5E26;&#x4E0A; cookie &#x4FE1;&#x606F;&#x3002;&#x56E0;&#x6B64;&#x540E;&#x53F0;&#x5728; Access-Control-Allow-Origin &#x4E2D;&#x8981;&#x8FD4;&#x56DE;&#x5177;&#x4F53;&#x7684;&#x57DF;&#x540D;&#xFF0C;&#x4EE5;&#x53CA;&#x5C06; Access-Control-Allow-Credentials &#x8BBE;&#x7F6E;&#x4E3A; true &#x4EE5;&#x8BA9;&#x6D4F;&#x89C8;&#x5668;&#x901A;&#x8FC7;&#x9A8C;&#x8BC1;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf7atqgwqkj30am05m0sq.jpg" alt="Access-Control-Allow-Credentials"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf5xlzui4fj30le00xwee.jpg" alt="use-credentials"></p>
+<p>&#x989D;&#x5916;&#x63D0;&#x4E00;&#x70B9;&#xFF0C;jsonp &#x4EA7;&#x751F;&#x7684;&#x811A;&#x672C;&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x662F;&#x975E;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x3002;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x6709;&#x4E00;&#x4E9B;&#x5751;&#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x4ECB;&#x7ECD;&#x3002;</p>
+<p><strong>&#x975E;&#x5E38;&#x89C4;&#x89E3;&#x51B3;&#x65B9;&#x6848;</strong></p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x662F;&#x5E38;&#x89C4;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;&#x8FD8;&#x6709;&#x4E00;&#x79CD;&#x975E;&#x5E38;&#x89C4;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5C31;&#x662F;&#x4F7F;&#x7528; <code>try...catch</code>&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6817;&#x5B50;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// https://xxx.badjs.js</span>
+window<span class="token punctuation">.</span><span class="token function-variable function">fireBadjs</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    ops
+<span class="token punctuation">}</span>
+</pre><pre data-role="codeBlock" data-info="html" class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>xxx.badjs.js<span class="token punctuation">&quot;</span></span> <span class="token punctuation">&gt;</span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">&apos;error&apos;</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">errorEvent</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token punctuation">{</span> message<span class="token punctuation">,</span> filename<span class="token punctuation">,</span> lineno<span class="token punctuation">,</span> colno<span class="token punctuation">,</span> error <span class="token punctuation">}</span> <span class="token operator">=</span> errorEvent
+        <span class="token keyword">debugger</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token function">fireBadjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+        <span class="token function">fireBadjs</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">debugger</span>
+    <span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</pre><p>badjs.js &#x91CC;&#x9762;&#x5F80; window &#x4E0B;&#x585E;&#x4E86;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; <code>fireBadjs</code> &#x7684;&#x51FD;&#x6570;&#xFF0C;&#x91CC;&#x9762;&#x8FD0;&#x884C;&#x4E86;&#x4E00;&#x884C;&#x4F1A;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A; <code>fireBadjs()</code> &#x8FD0;&#x884C;&#x540E;&#xFF0C;<code>error</code> &#x4E8B;&#x4EF6;&#x89E6;&#x53D1;&#xFF0C;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf60960oitj30dn04mwef.jpg" alt="script error"></p>
+<p>&#x60C5;&#x7406;&#x4E4B;&#x4E2D;&#xFF0C;error &#x4E8B;&#x4EF6;&#x53EA;&#x80FD;&#x6293;&#x5230; Script error&#x3002;</p>
+<p>&#x6CE8;&#x91CA;&#x6389;&#x7B2C;&#x4E00;&#x4E2A; <code>fireBadjs()</code>&#xFF0C;&#x8BA9;&#x5728; <code>try...catch</code> &#x4E2D;&#x7684; <code>fireBadjs()</code> &#x6267;&#x884C;&#xFF0C;badjs &#x88AB; catch &#x6355;&#x83B7;&#x3002;&#x6253;&#x5728; console &#x91CC;&#xFF0C;&#x5B83;&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf60c39srxj30l40ai3yo.jpg" alt="&#x9519;&#x8BEF;&#x4FE1;&#x606F;"></p>
+<p>&#x795E;&#x5947;&#x7684;&#x662F;&#xFF0C;&#x539F;&#x672C;&#x662F; Script error &#x7684;&#x5185;&#x5BB9;&#x88AB;&#x6316;&#x4E86;&#x51FA;&#x6765;&#x3002;</p>
+<p>&#x4F46;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#x7EC8;&#x5F52;&#x4E0D;&#x4F18;&#x96C5;&#xFF0C;&#x5BF9;&#x4EE3;&#x7801;&#x4FB5;&#x5165;&#x6027;&#x8F83;&#x5F3A;&#x3002;&#x800C;&#x4E14;&#x8FD8;&#x6709;&#x4E2A;&#x5C0F;&#x7F3A;&#x9677;&#xFF0C;&#x5C31;&#x662F;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x8C08;&#x8C08;&#x600E;&#x4E48;&#x6539;&#x5584;&#x3002;</p>
+<p><strong>try catch &#x589E;&#x5F3A;</strong></p>
+<p><code>try...catch</code> &#x662F;&#x4E00;&#x4E2A;&#x8BA9;&#x4EBA;&#x53C8;&#x7231;&#x53C8;&#x6068;&#x7684;&#x5DE5;&#x5177;&#x3002;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x6211;&#x4EEC;&#x4E3A;&#x4E86;&#x8BA9;&#x4EE3;&#x7801;&#x6709;&#x597D;&#x7684;&#x5065;&#x58EE;&#x6027;&#xFF0C;&#x4F1A;&#x7528;&#x5B83;&#x5305;&#x88F9;&#x8D77;&#x6765;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#x4E00;&#x65E6;&#x5728; <code>try</code> &#x4E2D;&#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x4E0D;&#x4F1A;&#x628A;&#x9519;&#x8BEF;&#x6253;&#x5728; console &#x91CC;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1; error &#x4E8B;&#x4EF6;&#x3002;</p>
+<p>&#x6765;&#x770B;&#x4E00;&#x6BB5;&#x7B80;&#x5355;&#x7684;&#x4EE3;&#x7801;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>apiData<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</pre><p>&#x5982;&#x679C; JSON.stringify(apiData) &#x53D1;&#x751F;&#x4E86;&#x9519;&#x8BEF;&#xFF0C;&#x4EE3;&#x7801;&#x53EF;&#x80FD;&#x662F;&#x8FD0;&#x884C;&#x6B63;&#x5E38;&#xFF0C;&#x4F46;&#x662F;&#x6700;&#x540E;&#x8868;&#x73B0;&#x6CA1;&#x6709;&#x8FBE;&#x5230;&#x9884;&#x671F;&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x91CC;&#x6709;&#x95EE;&#x9898;&#x3002;&#x6700;&#x540E;&#x53EF;&#x80FD;&#x7ED5;&#x4E86;&#x4E00;&#x4E2A;&#x5927;&#x5708;&#x5B50;&#x624D;&#x56DE;&#x5230;&#x8FD9;&#x91CC;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x95EE;&#x9898;&#x51FA;&#x5728;&#x5F02;&#x5E38;&#x88AB;&#x6355;&#x83B7;&#x4EE5;&#x540E;&#xFF0C;&#x6CA1;&#x6709;&#x7ED9;&#x4E88;&#x6211;&#x4EEC;&#x63D0;&#x793A;&#x3002;&#x90A3;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x4E5F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x624B;&#x52A8;&#x8865;&#x4E0A;&#x63D0;&#x793A;&#x5C31;&#x597D;&#x3002;</p>
+<p>&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x5728; <code>catch</code> &#x91CC;&#xFF0C;&#x628A;&#x9519;&#x8BEF;&#x6253;&#x5728; <code>console.error</code> &#x91CC;&#x9762;&#xFF0C;&#x5E76;&#x624B;&#x52A8;&#x5305;&#x88C5; <code>ErrorEvent</code>&#xFF0C;&#x4E22;&#x7ED9; window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x6355;&#x83B7;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>apiData<span class="token punctuation">)</span>
+<span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>ErrorEvent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        window<span class="token punctuation">.</span><span class="token function">dispatchEvent</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">ErrorEvent</span><span class="token punctuation">(</span><span class="token string">&apos;error&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> error<span class="token punctuation">,</span> message<span class="token punctuation">:</span> error<span class="token punctuation">.</span>message <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment">// &#x8FD9;&#x91CC;&#x4E5F;&#x4F1A;&#x89E6;&#x53D1;window.onerror</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        window<span class="token punctuation">.</span>onerror <span class="token operator">&amp;&amp;</span> window<span class="token punctuation">.</span><span class="token function">onerror</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x9700;&#x8981;&#x989D;&#x5916;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;<code>try...catch</code> &#x6709;&#x4E2A;&#x7F3A;&#x70B9;&#xFF0C;&#x4E0D;&#x80FD;&#x6355;&#x83B7;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x5F02;&#x5E38;&#x3002;&#x6BD4;&#x5982; <code>setTimeout</code>&#x3001;<code>promise</code>&#x3001;&#x4E8B;&#x4EF6;&#x7B49;&#x3002;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x5728;&#x4EE3;&#x7801;&#x91CC;&#x4ECE;&#x5934;&#x5230;&#x5C3E;&#x7B80;&#x5355;&#x7684;&#x5305;&#x88F9;&#x4E00;&#x5C42; <code>try...catch</code> &#x89E3;&#x51B3;&#x6240;&#x6709;&#x95EE;&#x9898;&#x3002;</p>
+<p><strong>hybrid-webview</strong></p>
+<p>&#x5F88;&#x591A; app &#x91CC;&#x9762;&#x90FD;&#x4F1A;&#x5185;&#x5D4C; webview &#x8FD0;&#x884C; h5 &#x9875;&#x9762;&#x3002;&#x5982;&#x679C; h5 &#x5728; webview &#x91CC;&#x9762;&#x53D1;&#x751F;&#x4E86; badjs&#xFF0C;&#x5404;&#x4F4D;&#x731C;&#x4E00;&#x731C;&#xFF0C;webview &#x7684;&#x8868;&#x73B0;&#x662F;&#x4EC0;&#x4E48;&#x6837;&#x7684;&#xFF1F;</p>
+<p>&#x8FD9;&#x91CC;&#x5206;&#x4E24;&#x4E2A;&#x73AF;&#x5883; iOS &#x548C; Android&#x3002;</p>
+<p>1.iOS&#x7CFB;&#x7EDF; (todo:ios12/13&#x4E4B;&#x5916;&#x7684;&#x7248;&#x672C;&#x5462;&#xFF1F;)</p>
+<p>&#x5728; iOS &#x4E2D;&#x7684; webview&#xFF0C;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x7684;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x5982;&#x679C;&#x53D1;&#x751F;&#x4E86;badjs(&#x6CE8;&#x610F;&#x662F;&#x5F02;&#x6B65;&#x4EE3;&#x7801;)&#xFF0C;&#x4E0D;&#x7BA1;&#x6709;&#x6CA1;&#x6709;&#x6309;&#x7167;&#x5E38;&#x89C4;&#x65B9;&#x6848;&#x53BB;&#x8BBE;&#x7F6E;&#x8DE8;&#x57DF;&#x5934;&#x548C; crossOrigin&#xFF0C;&#x5728; window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x91CC;&#x90FD;&#x53EA;&#x80FD;&#x6293;&#x5230; &apos;script error&apos;&#x3002;</p>
+<p>&#x4F60;&#x6CA1;&#x770B;&#x9519;&#xFF0C;&#x53EA;&#x8981;&#x662F; iOS &#x91CC;&#x7684; webview&#xFF0C;&#x4E0D;&#x8BBA;&#x662F;&#x4F60;&#x4E1A;&#x52A1;&#x4E0B;&#x7684; app&#xFF0C;&#x8FD8;&#x662F;&#x5FAE;&#x4FE1;&#x751A;&#x81F3;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x3002;</p>
+<p>&#x4E3E;&#x4E2A;&#x6817;&#x5B50;&#xFF1A;&#x5728;iPhone&#x7684;&#x5FAE;&#x4FE1;&#x91CC;&#x6253;&#x5F00;&#x4E86;&#x67D0;&#x4E2A; h5 &#x9875;&#x9762;&#xFF0C;h5 &#x9875;&#x9762;&#x5F15;&#x7528;&#x4E86;&#x67D0; (&#x8DE8;&#x57DF;)cdn &#x7684; js &#x6587;&#x4EF6;&#x3002;&#x5F53;&#x8FD9;&#x4E2A; js &#x6587;&#x4EF6;&#x5185;&#x90E8;&#x67D0;&#x4E2A;&#x4E8B;&#x4EF6;&#x4EA7;&#x751F; badjs &#x5E76;&#x4E0A;&#x62A5;&#x4E86;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#x53EA;&#x80FD;&#x770B;&#x5230; &apos;Script error&apos;&#x3002;</p>
+<p>2.Android&#x7CFB;&#x7EDF;</p>
+<p>&#x5728; Android &#x4E2D;&#x7684; webview&#xFF0C;&#x548C;web&#x7AEF;&#x4E00;&#x6837;&#x7684;&#x8868;&#x73B0;&#x3002;&#x8BBE;&#x7F6E;&#x597D;&#x4E86;&#x8DE8;&#x57DF;&#x5934;&#x548C; crossOrigin&#xFF0C;&#x5982;&#x679C;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x53D1;&#x751F; badjs&#xFF0C;&#x4E0D;&#x8BBA;&#x5F02;&#x6B65;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#xFF0C;&#x90FD;&#x80FD;&#x5728; window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x91CC;&#x6293;&#x5230;&#x9519;&#x8BEF;&#x8BE6;&#x60C5;&#x3002;</p>
+<p>&#x62FF;&#x4E00;&#x4E2A;&#x7B14;&#x8005;&#x8D1F;&#x8D23;&#x4E1A;&#x52A1;&#x7684;&#x7EBF;&#x4E0A;&#x7684;&#x6570;&#x636E;&#xFF0C;&#x7B80;&#x5355;&#x9A8C;&#x8BC1;&#x4E0B;&#x8FD9;&#x4E2A;&#x73B0;&#x8C61;&#xFF1A;</p>
+<p>&#x4E00;&#x4E2A;&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x6D41;&#x91CF;&#x8DD1;&#x5728; &#x5FAE;&#x4FE1; &#x548C; &#x624B;&#x673A;QQ &#x91CC;&#x7684;&#x4E1A;&#x52A1;&#xFF0C;&#x5728; Android &#x73AF;&#x5883;&#x4E0B;&#xFF0C;&#x6709; 8043 &#x4E2A; script error</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf4svdxr4vj31mi070aab.jpg" alt></p>
+<p>&#x5728; iOS &#x73AF;&#x5883;&#x4E0B;&#x6709; 25685 &#x4E2A; script error</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf4sx081lvj31fc06u0sx.jpg" alt></p>
+<p>&#x987A;&#x4FBF;&#x4E00;&#x63D0;&#xFF0C;iOS &#x4E0B;&#x7684;&#x975E; script error &#x53EA;&#x6709; 393 &#x4E2A;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6CD5;&#xFF0C;&#x4E3B;&#x8981;&#x662F;&#x9488;&#x5BF9; iOS &#x73AF;&#x5883;&#x3002;&#x56E0;&#x4E3A; Android &#x8868;&#x73B0;&#x548C; web &#x7AEF;&#x4E00;&#x81F4;&#x3002;</p>
+<p>1.&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x6539;&#x4E3A;&#x540C;&#x57DF;&#x811A;&#x672C;&#x3002;</p>
+<p>&#x540C;&#x57DF;&#x811A;&#x672C;&#x62A5;&#x9519;&#x4E0D;&#x4F1A;&#x663E;&#x793A; Script error&#x3002;</p>
+<p>2.try...catch &#x5305;&#x88F9;</p>
+<p>&#x628A;&#x8DE8;&#x57DF;&#x7684;&#x811A;&#x672C;&#x91CC;&#x7684;&#x5F02;&#x6B65;&#x65B9;&#x6CD5;&#x7528; try...catch &#x5305;&#x88F9;&#x4E00;&#x4E0B;&#xFF0C;&#x5728; catch &#x4E2D;&#x624B;&#x52A8;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;&#x3002;&#x624B;&#x52A8;&#x5305;&#x88F9;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x53EF;&#x4EE5;&#x8003;&#x8651;&#x7528;&#x5DE5;&#x5177;&#x6253;&#x5305;&#x7684;&#x65F6;&#x5019;&#x81EA;&#x52A8;&#x5305;&#x88F9;&#x4E00;&#x4E0B;&#x3002;</p>
+<p>3.&#x7528; Android &#x7684; badjs &#x6570;&#x636E;&#x53C2;&#x8003; iOS</p>
+<p>&#x56E0;&#x4E3A;&#x4E24;&#x4E2A;&#x73AF;&#x5883;&#x51FA;&#x5F02;&#x5E38;&#x7684;&#x6982;&#x7387;&#x8FD1;&#x4F3C;&#x76F8;&#x7B49;&#xFF0C;&#x5728;&#x505A;&#x597D;&#x8DE8;&#x57DF;&#x5DE5;&#x4F5C;&#x4EE5;&#x540E;&#xFF0C;&#x4E13;&#x6CE8;&#x89E3;&#x51B3; Android &#x4E0B;&#x7684; badjs&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x8986;&#x76D6;&#x7EDD;&#x5927;&#x90E8;&#x5206; iOS &#x7684;&#x5F02;&#x5E38;&#x4E86;&#x3002;</p>
+<p><strong>hybrid-&#x4EE3;&#x7801;&#x6CE8;&#x5165;</strong></p>
+<p>&#x8FD9;&#x91CC;&#x548C;&#x4E0A;&#x9762;&#x4E00;&#x8282;&#x7684;&#x533A;&#x522B;&#x662F;&#xFF0C;&#x4E0A;&#x4E00;&#x8282;&#x662F; h5 &#x5728; app &#x91CC;&quot;&#x81EA;&#x7531;&#x843D;&#x4F53;&quot;&#xFF0C;&#x8FD9;&#x4E00;&#x8282;&#x662F;&#x7531; app &#x4E3B;&#x52A8;&#x5E72;&#x6D89;&#x3002;</p>
+<p>app native &#x5F80; webview &#x6CE8;&#x5165;&#x4EE3;&#x7801;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#x3002;&#x7B2C;&#x4E00;&#x79CD;&#x662F; native &#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x6210; js &#x4EE3;&#x7801;&#xFF0C;&#x518D;&#x53D1;&#x9001;&#x5230; webview &#x901A;&#x8FC7; js &#x5F15;&#x64CE;&#x6267;&#x884C;&#x3002;&#x7B2C;&#x4E8C;&#x79CD;&#x662F;&#x7528; c++ &#x4EE3;&#x7801;&#xFF0C;&#x76F4;&#x63A5;&#x5199;&#x5728;&#x5F15;&#x64CE;&#x7684;&#x5E95;&#x5C42;&#xFF0C;&#x6210;&#x4E3A; native code&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x5B9E;&#x9645;&#x4E0A;&#x8FD8;&#x662F;&#x901A;&#x8FC7; webview &#x73AF;&#x5883;&#x6267;&#x884C;&#xFF0C;&#x548C; js &#x4EE3;&#x7801;&#x65E0;&#x5F02;&#x3002;&#x5E38;&#x89C1;&#x4E8E;&#x5728; JSSDK &#x91CC;&#x7684;&#x4E00;&#x4E9B; <code>callback</code> &#x53C2;&#x6570;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf50yfxpecj30pw06wweh.jpg" alt></p>
+<p>app &#x4E00;&#x822C;&#x4F1A;&#x4E3A;&#x4E86;&#x907F;&#x514D;&#x903B;&#x8F91;&#x8FC7;&#x4E8E;&#x590D;&#x6742;&#xFF0C;&#x901A;&#x5E38;&#x5C31;&#x662F;&#x5F80; webview &#x91CC;&#x76F4;&#x63A5;&#x6267;&#x884C; <code>window.callback</code>&#xFF0C;&#x5982;&#x679C; callback &#x4E0D;&#x5B58;&#x5728;&#xFF0C;&#x51FA;&#x4E86;&#x5F02;&#x5E38;&#xFF0C;Android &#x4E2D;&#x548C; web &#x7AEF;&#x8868;&#x73B0;&#x4E00;&#x81F4;&#x3002;</p>
+<p>&#x4F46;&#x662F; iOS &#x91CC;&#x53EA;&#x6709; Script error&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x5728;&#x65E5;&#x5FD7;&#x91CC;&#x770B;&#x5230;&#x5904;&#x4E8E; anonymous &#x4E0B;&#x7B2C;&#x4E00;&#x884C;&#x7B2C;&#x4E00;&#x5217;&#x7684;&#x62A5;&#x9519;&#xFF0C;&#x5E76;&#x4E14; ua &#x662F; app &#x73AF;&#x5883;&#x3002;&#x90A3;&#x5F88;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x7531; app &#x4E3B;&#x52A8;&#x7684;&#x8C03;&#x7528;&#x4EA7;&#x751F;&#x7684; badjs&#xFF1A;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf5vtiq0k0j30wm03v74p.jpg" alt="app &#x4E3B;&#x52A8;&#x8C03;&#x7528;"></p>
+<p>Android &#x6CA1;&#x4EC0;&#x4E48;&#x597D;&#x8BF4;&#x7684;&#xFF0C;iOS &#x5728; content &#x8FD9;&#x91CC;&#x5219;&#x4F1A;&#x663E;&#x793A; Script error&#x3002;&#x7531;&#x4E8E;&#x4EE3;&#x7801;&#x662F; app &#x751F;&#x6210;&#x53D1;&#x9001;&#x5230; webview &#x5F53;&#x4E2D;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x524D;&#x7AEF;&#x6CA1;&#x529E;&#x6CD5;&#x505A;&#x4EC0;&#x4E48;&#x53BB;&#x89E3;&#x6784;&#x8FD9;&#x4E2A; Script error&#xFF0C;&#x53EA;&#x80FD;&#x8DDF; app &#x7684;&#x540C;&#x5B66;&#x5546;&#x91CF;&#x505A;&#x4E00;&#x5C42;&#x4FDD;&#x62A4;&#xFF0C;&#x6BD4;&#x5982;&#x8C03;&#x7528;&#x524D;&#x5148;&#x68C0;&#x67E5;&#x51FD;&#x6570;&#x662F;&#x5426;&#x5B9A;&#x4E49;&#x8FC7;&#x4E86;&#x3002;</p>
+<p>&#x7B2C;&#x4E8C;&#x79CD;&#x7528; c++ &#x4EE3;&#x7801;&#xFF0C;&#x76F4;&#x63A5;&#x5199;&#x5728;&#x5F15;&#x64CE;&#x7684;&#x5E95;&#x5C42;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x5E38;&#x89C1;&#x4E8E; native &#x751F;&#x6210;&#x4E00;&#x6BB5;&#x4F9B; h5 &#x4F7F;&#x7528;&#x539F;&#x751F; app &#x80FD;&#x529B;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x6BD4;&#x5982; jssdk&#x3002;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x6210;&#x4E3A; native code&#x3002;</p>
+<p>native code &#x7684;&#x793A;&#x4F8B;&#xFF1A;console.log</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gf50qc86ebj305200qmwx.jpg" alt="native"></p>
+<p>&#x7531;&#x4E8E;&#x8FD0;&#x884C;&#x5728;&#x5F15;&#x64CE;&#x5F53;&#x4E2D;&#xFF0C;&#x4E00;&#x65E6;&#x51FA;&#x9519;&#xFF0C;webview &#x53EF;&#x80FD;&#x6574;&#x4E2A;&#x90FD;&#x6302;&#x4E86;&#x3002;&#x524D;&#x7AEF; badjs &#x4E8B;&#x4EF6;&#x5BF9;&#x4E8E;&#x8FD9;&#x79CD;&#x60C5;&#x51B5;&#x662F;&#x65E0;&#x80FD;&#x529B;&#x4E3A;&#x7684;&#xFF0C;&#x53EF;&#x4EE5;&#x5FFD;&#x7565;&#x3002;</p>
+<p><strong>iframe</strong></p>
+<p>iframe&#x91CC;&#x9762;&#x7684;&#x4EE3;&#x7801;badjs&#xFF0C;&#x6839;&#x9875;&#x9762;&#x662F;&#x6293;&#x4E0D;&#x5230;&#x7684;&#x3002;&#x8FD9;&#x4E2A;&#x7B56;&#x7565;&#x5F88;&#x597D;&#x7406;&#x89E3;&#xFF0C;&#x6BD5;&#x7ADF;&#x65E0;&#x6CD5;&#x786E;&#x8BA4; iframe &#x91CC;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x5F0F;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5728;&#x5B50; iframe &#x91CC;&#x9762;&#x540C;&#x6837;&#x7ED1;&#x5B9A;&#x5B83;&#x7684; window &#x4E0B;&#x7684; error &#x4E8B;&#x4EF6;&#x5373;&#x53EF;&#x3002;</p>
+<h3 class="mume-header" id="%E5%90%8E%E5%8F%B0%E5%BB%BA%E8%AE%BE">&#x540E;&#x53F0;&#x5EFA;&#x8BBE;</h3>
+
+<p>&#x5927;&#x90E8;&#x5206;&#x540C;&#x884C;&#x4F7F;&#x7528; badjs &#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#x6700;&#x5927;&#x7684;&#x963B;&#x788D;&#x6765;&#x81EA;&#x4E8E;&#x540E;&#x53F0;&#x7684;&#x5EFA;&#x8BBE;&#x3002;&#x6839;&#x636E; logstash &#x4E1A;&#x754C;&#x6807;&#x51C6;&#x65E5;&#x5FD7;&#x91C7;&#x96C6;&#x6D41;&#x7A0B;&#xFF0C;&#x524D;&#x7AEF;&#x53EA;&#x80FD;&#x5B8C;&#x6210;&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x91C7;&#x96C6;&#x3002;&#x5BF9;&#x4E8E;&#x50A8;&#x5B58;&#x548C;&#x5C55;&#x793A;&#x662F;&#x65E0;&#x80FD;&#x4E3A;&#x529B;&#x7684;&#xFF0C;&#x9700;&#x8981;&#x540E;&#x53F0;&#x540C;&#x5B66;&#x7684;&#x4ECB;&#x5165;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#x7B14;&#x8005;&#x6240;&#x5728;&#x7684;&#x4EAC;&#x4E1C;&#x793E;&#x4EA4;&#x7535;&#x5546;&#x90E8;&#x6709;&#x5173;&#x7684;&#x4E00;&#x4E9B;&#x80CC;&#x666F;&#xFF0C;&#x4EE5;&#x4F9B;&#x53C2;&#x8003;&#x3002;</p>
+<p><strong>&#x6570;&#x636E;&#x91CF;&#x7EA7;</strong></p>
+<p>&#x6211;&#x4EEC;&#x7684;&#x65E5;&#x5FD7;&#x6570;&#x636E;&#x9664;&#x4E86; badjs&#xFF0C;&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x524D;&#x7AEF;&#x4E3B;&#x52A8;&#x4E0A;&#x62A5;&#x7684;&#x4E1A;&#x52A1;&#x65E5;&#x5FD7;&#x4FE1;&#x606F;&#x3002;&#x56E0;&#x4E3A;&#x90E8;&#x95E8;&#x91CC;&#x7684;&#x4E1A;&#x52A1;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x4E0A;&#x62A5;&#x6D41;&#x7A0B;&#x4E5F;&#x6BD4;&#x8F83;&#x89C4;&#x8303;&#xFF0C;&#x4E0A;&#x62A5;&#x6570;&#x636E;&#x968F;&#x7740;&#x4E0D;&#x65AD;&#x589E;&#x591A;&#x7684;&#x4E1A;&#x52A1;&#x8282;&#x8282;&#x6500;&#x5347;&#x3002;&#x73B0;&#x5728;&#x6BCF;&#x5929;&#x7684;&#x6570;&#x636E;&#x5927;&#x6982;24&#x4EBF;&#x6761;(2.5T)&#x3002;&#x7B5B;&#x6389;&#x4E1A;&#x52A1;&#x4E0A;&#x62A5;&#xFF0C;&#x7EAF; badjs &#x5927;&#x6982;&#x53EA;&#x5360;&#x4E86; 0.67%&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x6211;&#x4EEC;&#x6709;&#x5927;&#x6570;&#x636E;&#x673A;&#x5668;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x4E9B;&#x4FE1;&#x606F;&#x8DD1;&#x5728;&#x6211;&#x4EEC;&#x81EA;&#x5DF1;&#x7684;&#x6570;&#x636E;&#x673A;&#x5668;&#x4E0A;&#xFF0C;&#x6CA1;&#x6709;&#x989D;&#x5916;&#x5F00;&#x9500;&#x3002;</p>
+<p><strong>&#x6027;&#x80FD;&#x4F18;&#x5316;</strong></p>
+<p>&#x867D;&#x7136;&#x673A;&#x5668;&#x8D44;&#x6E90;&#x6BD4;&#x8F83;&#x8DB3;&#xFF0C;&#x4F46;&#x662F;&#x4E5F;&#x6491;&#x4E0D;&#x4F4F;&#x65E0;&#x8282;&#x5236;&#x7684;&#x4F7F;&#x7528;&#x3002;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E9B;&#x6027;&#x80FD;&#x4F18;&#x5316;&#x65B9;&#x6848;&#xFF0C;&#x4FDD;&#x8BC1;&#x65E5;&#x5FD7;&#x670D;&#x52A1;&#x7A33;&#x5B9A;&#x3002;</p>
+<ul>
+<li>&#x6570;&#x636E;&#x6BCF;5&#x5929;&#x6E05;&#x9664;&#x4E00;&#x6B21;
+<ul>
+<li>&#x6570;&#x636E;&#x5B9A;&#x671F;&#x6E05;&#x9664;&#xFF0C;&#x4FDD;&#x8BC1;&#x50A8;&#x5B58;&#x7A7A;&#x95F4;&#x826F;&#x6027;&#x5FAA;&#x73AF;</li>
+<li>&#x8FC7;&#x671F;&#x7684;&#x65E5;&#x5FD7;&#x4E0D;&#x518D;&#x63D0;&#x4F9B;&#x67E5;&#x8BE2;&#x80FD;&#x529B;</li>
+</ul>
+</li>
+<li>&#x4E0A;&#x62A5;&#x964D;&#x7EA7;&#x65B9;&#x6848;
+<ul>
+<li>&#x524D;&#x7AEF;&#x6709;&#x63A5;&#x5165;&#x914D;&#x7F6E;&#xFF0C;&#x5F53;&#x6570;&#x636E;&#x4E95;&#x55B7;&#xFF0C;&#x81EA;&#x52A8;&#x8C03;&#x6574;&#x91C7;&#x6837;&#x7387;&#xFF0C;&#x653E;&#x5F03;&#x4E00;&#x5B9A;&#x6BD4;&#x4F8B;&#x7684;&#x4E0A;&#x62A5;</li>
+<li>&#x540E;&#x53F0;&#x4E5F;&#x6709;&#x7C7B;&#x4F3C;&#x914D;&#x7F6E;&#xFF0C;&#x6570;&#x636E;&#x91CF;&#x8FC7;&#x9AD8;&#xFF0C;&#x81EA;&#x52A8;&#x653E;&#x5F03;&#x4E00;&#x4E9B;&#x6570;&#x636E;</li>
+</ul>
+</li>
+</ul>
+<p><strong>&#x7B2C;&#x4E00;&#x7248;&#x6570;&#x636E;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#xFF1A;webmonitor</strong></p>
+<p>&#x6211;&#x4EEC;&#x6700;&#x521D;&#x7684;&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#xFF0C;&#x6587;&#x4EF6;&#x5B58;&#x5728; hdfs &#x5F53;&#x4E2D;&#x3002;&#x4F7F;&#x7528; url &#x4F5C;&#x4E3A;&#x5173;&#x952E;&#x5B57;&#x8FDB;&#x884C;&#x67E5;&#x8BE2; badjs&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gez1jthn4tj32940qi75u.jpg" alt="&#x7B80;&#x5355;&#x7684;&#x62A5;&#x8868;&#x7CFB;&#x7EDF;"></p>
+<p>&#x5F53;&#x53D1;&#x8D77;&#x67E5;&#x8BE2;&#x65F6;&#xFF0C;&#x4F7F;&#x7528; impala &#x66B4;&#x529B;&#x626B;&#x63CF; hdfs&#x3002;&#x6548;&#x7387;&#x6BD4;&#x8F83;&#x4F4E;&#xFF0C;&#x67E5;&#x4E00;&#x6B21;&#x5927;&#x6982;&#x534A;&#x5206;&#x949F;&#x3002;</p>
+<p>&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x6CA1;&#x6709;&#x66F4;&#x591A;&#x7684;&#x7B5B;&#x9009;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#xFF0C;&#x5C55;&#x793A;&#x65B9;&#x5F0F;&#x4E5F;&#x5341;&#x5206;&#x7C97;&#x7CD9;&#x3002;</p>
+<p><strong>&#x7B2C;&#x4E8C;&#x7248;&#x6570;&#x636E;&#x6536;&#x96C6;&#x7CFB;&#x7EDF;&#xFF1A;ElasticSearch+Kibana</strong></p>
+<p>&#x7B2C;&#x4E8C;&#x7248;&#x7684;&#x65E5;&#x5FD7;&#x7CFB;&#x7EDF;&#xFF0C;&#x5927;&#x6570;&#x636E;&#x540C;&#x5B66;&#x63A5;&#x5165;&#x4E86; ElasticSearch&#xFF0C;&#x5EFA;&#x7ACB;&#x4E86;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7; Kibana &#x548C;&#x5B83;&#x65E0;&#x7F1D;&#x5BF9;&#x63A5;&#x3002;&#x56E0;&#x4E3A;&#x6709;&#x4E86;&#x7D22;&#x5F15;&#xFF0C;&#x67E5;&#x8BE2;&#x901F;&#x5EA6;&#x5FEB;&#x4E86;&#xFF1B;&#x901A;&#x8FC7; Kibana&#xFF0C;&#x67E5;&#x8BE2;&#x95E8;&#x69DB;&#x4F4E;&#x4E86;&#xFF0C;&#x4E5F;&#x6709;&#x66F4;&#x591A;&#x7EF4;&#x5EA6;&#x6570;&#x636E;&#x7684;&#x5206;&#x6790;&#x4E86;&#x3002;</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1geyztuwuiij31fz0u0wna.jpg" alt="kibana&#x7CFB;&#x7EDF;"></p>
+<p>&#x67E5;&#x8BE2;&#x901F;&#x5EA6;&#x7684;&#x63D0;&#x9AD8;&#xFF0C;&#x5BF9;&#x5FEB;&#x901F;&#x5B9A;&#x4F4D;&#x548C;&#x56DE;&#x5E94;&#x4E0A;&#x7EA7;&#x7684;&#x6548;&#x7387;&#x6709;&#x4E86;&#x8D28;&#x7684;&#x98DE;&#x8DC3;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x5173;&#x952E;&#x8BCD;&#x8FDB;&#x884C;&#x67E5;&#x8BE2;&#xFF0C;&#x7B5B;&#x6389;&#x65E0;&#x7528;&#x7684;&#xFF0C;&#x6216;&#x8005;&#x9009;&#x62E9;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x4FE1;&#x606F;&#x3002;</p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x9009;&#x62E9;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x7684;&#x533A;&#x95F4;&#xFF0C;&#x5F88;&#x5FEB;&#x7684;&#x5206;&#x6790;&#x95EE;&#x9898;&#x548C;&#x63D0;&#x51FA;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;</p>
+<p>&#x4ECE;&#x672A;&#x611F;&#x89C9;&#x4F5C;&#x4E3A;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;&#x5E78;&#x798F;&#x611F;&#x53EF;&#x4EE5;&#x5982;&#x6B64;&#x4E4B;&#x9AD8;&#x3002;</p>
+<h2 class="mume-header" id="%E5%B0%8F%E7%BB%93">&#x5C0F;&#x7ED3;</h2>
+
+<h3 class="mume-header" id="%E6%94%B6%E9%9B%86-badjs-%E7%9A%84%E5%8E%9F%E7%90%86">&#x6536;&#x96C6; badjs &#x7684;&#x539F;&#x7406;</h3>
+
+<ul>
+<li>&#x901A;&#x8FC7; <code>errorEvent</code> &#x6216;&#x8005; <code>window.onerror</code></li>
+</ul>
+<h3 class="mume-header" id="badjs-%E4%B8%8A%E6%8A%A5">badjs &#x4E0A;&#x62A5;</h3>
+
+<ul>
+<li>&#x5728; url &#x4E0A;&#x62FC;&#x63A5; error.stack &#x7684;&#x4FE1;&#x606F;</li>
+<li>&#x7528; img &#x7B49;&#x65B9;&#x5F0F;&#x53D1;&#x9001;&#x6570;&#x636E;</li>
+</ul>
+<h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90-1">&#x6570;&#x636E;&#x5206;&#x6790;</h3>
+
+<ul>
+<li>&#x901A;&#x8FC7;&#x6808;&#x4FE1;&#x606F;&#xFF0C;&#x4EBA;&#x5DE5;&#x56DE;&#x6EAF;&#x4EE3;&#x7801;</li>
+<li>&#x901A;&#x8FC7; ua &#x7B80;&#x5355;&#x5224;&#x65AD;&#x73AF;&#x5883;&#x548C;&#x7528;&#x6237;&#x8EAB;&#x4EFD;</li>
+<li>&#x5BF9;&#x4E8E; script error &#x4FE1;&#x606F;&#xFF0C;&#x5F97;&#x4E0D;&#x5230;&#x592A;&#x591A;&#x6709;&#x7528;&#x7684;&#x4EF7;&#x503C;&#xFF0C;&#x5206;&#x6790;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x3002;&#x4F46;&#x662F;&#x8981;&#x60F3;&#x529E;&#x6CD5;&#x5728;&#x4E0A;&#x62A5;&#x7684;&#x65F6;&#x5019;&#x628A;&#x5B83;&quot;&#x89E3;&#x6784;&quot;</li>
+</ul>
+<h3 class="mume-header" id="%E5%B8%B8%E8%A7%81%E5%BC%95%E8%B5%B7-script-error-%E7%9A%84%E5%9C%BA%E6%99%AF">&#x5E38;&#x89C1;&#x5F15;&#x8D77; script error &#x7684;&#x573A;&#x666F;</h3>
+
+<ul>
+<li>&#x672A;&#x901A;&#x8FC7; crossorigin &#x8DE8;&#x57DF;&#x811A;&#x672C;&#x5185;&#x7684; badjs</li>
+<li>&#x672A;&#x901A;&#x8FC7; crossorigin &#x7684; jsonp &#x901A;&#x8FC7; script &#x751F;&#x6210;&#x7684; js &#x4EE3;&#x7801;&#x91CC;&#x7684; badjs</li>
+<li>iOS &#x4E0B;&#x7684;&#x8DE8;&#x57DF;&#x811A;&#x672C;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x5185;&#x7684; badjs</li>
+<li>iOS &#x4E0B; native &#x4E3B;&#x52A8;&#x6267;&#x884C; js &#x4EE3;&#x7801;&#x7684; badjs</li>
+</ul>
+<h3 class="mume-header" id="%E5%85%B3%E4%BA%8E%E5%BC%82%E6%AD%A5%E4%BB%A3%E7%A0%81%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E7%82%B9">&#x5173;&#x4E8E;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x70B9;</h3>
+
+<ul>
+<li>ios &#x4E0B;&#x7684;&#x8DE8;&#x57DF;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x65E0;&#x6CD5;&#x89E3;&#x6790; script error</li>
+<li>try catch &#x65E0;&#x6CD5;&#x6293;&#x5230;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x7684;&#x9519;&#x8BEF;</li>
+<li>jsonp &#x5927;&#x591A;&#x662F;&#x540C;&#x6B65;&#x4EE3;&#x7801;</li>
+</ul>
+<h2 class="mume-header" id="%E5%BF%85%E8%A6%81%E6%80%A7">&#x5FC5;&#x8981;&#x6027;</h2>
+
+<p>&#x6700;&#x540E;&#x56DE;&#x8FC7;&#x5934;&#x804A;&#x4E00;&#x804A;&#x6709;&#x5173;&#x8FD9;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x5FC5;&#x8981;&#x6027;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x7B14;&#x8005;&#x7684;&#x4E1A;&#x52A1;&#xFF0C;&#x8FD9;&#x4E48;&#x4E00;&#x5957;&#x7CFB;&#x7EDF;&#x662F;&#x5FC5;&#x987B;&#x7684;&#x3002;&#x56E0;&#x4E3A;&#x5B89;&#x5168;&#x975E;&#x5E38;&#x91CD;&#x8981;&#xFF0C;&#x6211;&#x4EEC;&#x6839;&#x672C;&#x65E0;&#x6CD5;&#x627F;&#x62C5;&#x8F83;&#x957F;&#x65F6;&#x95F4;&#xFF0C;&#x7EBF;&#x4E0A;&#x51FA;&#x95EE;&#x9898;&#x540E;&#x7684;&#x8D23;&#x4EFB;&#x3002;</p>
+<p>&#x53EF;&#x80FD;&#x6709;&#x7684;&#x540C;&#x5B66;&#x5C31;&#x8981;&#x95EE;&#x4E86;&#xFF1A;&#x201C;&#x6211;&#x4EEC;&#x4E1A;&#x52A1;&#x6CA1;&#x6709;&#x8FD9;&#x4E2A;&#x4E1C;&#x897F;&#xFF0C;&#x51B5;&#x4E14;&#x53C8;&#x4F9D;&#x8D56;&#x90A3;&#x4E48;&#x591A;&#x8D44;&#x6E90;&#xFF0C;&#x6211;&#x6839;&#x672C;&#x6CA1;&#x6CD5;&#x62FF;&#x4E3B;&#x610F;&#x554A;&#x201D;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x7A0D;&#x5FAE;&#x5206;&#x6790;&#x4E00;&#x4E0B;&#x5B83;&#x7684;&#x4F18;&#x52BF;&#x548C;&#x7F3A;&#x9677;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BC%98%E5%8A%BF">&#x4F18;&#x52BF;</h3>
+
+<p>&#x4E0D;&#x786E;&#x5B9A;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x6709;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#xFF0C;&#x662F;&#x4E00;&#x4EF6;&#x975E;&#x5E38;&#x4E0D;&#x5B89;&#x7684;&#x4E8B;&#x60C5;&#x3002;&#x8981;&#x662F;&#x6709;&#x5BA2;&#x6237;&#x7528;&#x6237;&#x6295;&#x8BC9;&#x8FC7;&#x6765;&#xFF0C;&#x90A3;&#x771F;&#x662F;&#x4E00;&#x4E2A;&#x5934;&#x4E24;&#x4E2A;&#x5927;&#x3002;</p>
+<p>&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x524D;&#x7AEF;&#x7684;&#x4E1A;&#x52A1;&#x4EE3;&#x7801;&#x90FD;&#x662F;&#x7ECF;&#x8FC7;&#x6D4B;&#x8BD5;&#x628A;&#x5173;&#x7684;&#x3002;&#x5982;&#x679C;&#x901A;&#x8FC7;&#x4E86;&#x5145;&#x5206;&#x6D4B;&#x8BD5;&#xFF0C;&#x7EBF;&#x4E0A;&#x4EE3;&#x7801;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x51FA;&#x95EE;&#x9898;&#x7684;&#x6982;&#x7387;&#x6BD4;&#x8F83;&#x4F4E;&#xFF0C;&#x6240;&#x4EE5;&#x5173;&#x6CE8;&#x70B9;&#x96C6;&#x4E2D;&#x5728;&#x6709;&#x6CA1;&#x6709;&#x4EE3;&#x7801;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x8FD9;&#x4E48;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x51FA;&#x73B0;&#xFF0C;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x589E;&#x52A0;&#x4E86;&#x524D;&#x7AEF;&#x540C;&#x5B66;&#x7684;&#x81EA;&#x4FE1;&#x5FC3;&#x3002;&#x53D1;&#x7248;&#x4E4B;&#x540E;&#xFF0C;&#x51FA;&#x4E86;&#x95EE;&#x9898;&#xFF0C;&#x80FD;&#x591F;&#x7B2C;&#x4E00;&#x65F6;&#x95F4;&#x56DE;&#x9000;&#x4EE3;&#x7801;&#xFF0C;&#x5B9A;&#x4F4D;&#x95EE;&#x9898;&#x3002;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F;&#x7ED9;&#x4E86;&#x8001;&#x677F;&#x4EEC;<strong>&#x5B89;&#x5168;&#x611F;</strong>&#x3002;</p>
+<h3 class="mume-header" id="%E7%BC%BA%E9%99%B7">&#x7F3A;&#x9677;</h3>
+
+<p>&#x7136;&#x800C;&#x8FD9;&#x6837;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E0D;&#x662F;&#x4E07;&#x91D1;&#x6CB9;&#xFF0C;&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5176;&#x4ED6;&#x7EF4;&#x5EA6;&#x7684;&#x95EE;&#x9898;&#x65E0;&#x6CD5;&#x7528;&#x5B83;&#x8861;&#x91CF;&#x3002;&#x5982;&#x679C;&#x592A;&#x8FC7;&#x4E8E;&#x4F9D;&#x8D56;&#xFF0C;&#x6CA1;&#x6709;&#x5145;&#x5206;&#x6D4B;&#x8BD5;&#x4E1A;&#x52A1;&#xFF0C;&#x4E0A;&#x7EBF;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x770B;&#x4E86;&#x4E00;&#x773C; badjs &#x65E5;&#x5FD7;&#x5C31;&#x7B97;&#x5B8C;&#x4E8B;&#x4E86;&#xFF0C;&#x90A3;&#x7EBF;&#x4E0A;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x5F88;&#x591A;&#x5934;&#x5927;&#x7684;&#x95EE;&#x9898;&#x7B49;&#x7740;&#x4F60;&#x53D1;&#x73B0;&#x3002;</p>
+<p>&#x53E6;&#x5916;&#x8FD9;&#x4E2A;&#x8D44;&#x6E90;&#x7684;&#x5F00;&#x9500;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x5F97;&#x4E0D;&#x63D0;&#x7684;&#x95EE;&#x9898;&#x3002;&#x5982;&#x679C;&#x516C;&#x53F8;&#x6CA1;&#x6709;&#x8DB3;&#x591F;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x989D;&#x5916;&#x7684;&#x5F00;&#x9500;&#x5728;&#x79DF;&#x501F;&#x670D;&#x52A1;&#x5668;&#x548C;&#x5B58;&#x50A8;&#x8BBE;&#x5907;&#x4E0A;&#x3002;</p>
+<h3 class="mume-header" id="%E6%80%8E%E4%B9%88%E9%80%89%E6%8B%A9">&#x600E;&#x4E48;&#x9009;&#x62E9;</h3>
+
+<p>&#x5F88;&#x591A;&#x5728;&#x5904;&#x4E8E;&#x6210;&#x957F;&#x671F;&#x7684;&#x4E1A;&#x52A1;&#x53EF;&#x80FD;&#x6839;&#x672C;&#x6CA1;&#x7CBE;&#x529B;&#x53BB;&#x505A;&#x8FD9;&#x4E9B;&#x57FA;&#x7840;&#x5EFA;&#x8BBE;&#xFF0C;&#x4F46;&#x6211;&#x76F8;&#x4FE1;&#x5728;&#x672A;&#x6765;&#x7684;&#x67D0;&#x4E2A;&#x65F6;&#x95F4;&#xFF0C;&#x4F60;&#x4F1A;&#x8FEB;&#x5207;&#x7684;&#x9700;&#x8981;&#x8FD9;&#x4E9B;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x7B49;&#x5230;&#x9700;&#x8981;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4E0D;&#x59A8;&#x56DE;&#x8FC7;&#x5934;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x51FA;&#x73B0;&#x95EE;&#x9898;&#x5E26;&#x6765;&#x7684;&#x635F;&#x5931;&#x5927;&#x4E8E;&#x5EFA;&#x8BBE;&#x6210;&#x672C;&#x548C;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#xFF0C;&#x6211;&#x76F8;&#x4FE1;&#x4F60;&#x4E00;&#x5B9A;&#x80FD;&#x8BF4;&#x670D;&#x4F60;&#x6240;&#x5728;&#x7684;&#x56E2;&#x961F;&#x548C;&#x4F60;&#x7684;&#x8001;&#x677F;&#x3002;</p>
+<h2 class="mume-header" id="%E5%8F%82%E8%80%83%E8%B5%84%E6%96%99">&#x53C2;&#x8003;&#x8D44;&#x6599;</h2>
+
+<ul>
+<li><a href="https://mp.weixin.qq.com/s/aqO55IyVCZzh9yhKuOKSCQ">&#x524D;&#x7AEF;&#x8D8A;&#x7BA1;&#x8D8A;&#x5BBD;&#xFF0C;&#x817E;&#x8BAF;Now&#x76F4;&#x64AD;&#x5982;&#x4F55;&#x628A;&#x76D1;&#x63A7;&#x4F53;&#x7CFB;&#x505A;&#x5230;&#x6781;&#x81F4;&#xFF1F;</a></li>
+<li><a href="https://github.com/BetterJS/badjs-report/issues/3">Script Error&#x89C4;&#x8303;</a></li>
+</ul>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
